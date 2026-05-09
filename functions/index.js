@@ -2,7 +2,7 @@
 // 首页重定向，根据 cookie / 浏览器语言 / 国家选择语言
 // 写入 host-only lang cookie（不带 Domain，SameSite=Lax），默认 30 天有效
 
-const SUPPORTED = ["zh-cn","zh-tw","en-us","ja-jp"];
+export const SUPPORTED = ["zh-cn","zh-tw","en-us","ja-jp"];
 const LANG_COOKIE = "lang";
 const COUNTRY_FALLBACK = {
     CN:"zh-cn", TW:"zh-tw", HK:"zh-tw", MO:"zh-tw", SG:"zh-cn", MY:"zh-cn",
@@ -17,7 +17,7 @@ function readLangCookie(req) {
     try { return decodeURIComponent(m[1]).toLowerCase(); } catch { return null; }
 }
 
-function negotiateLocale(acceptLang) {
+export function negotiateLocale(acceptLang) {
     if (!acceptLang) return null;
     const parts = acceptLang.split(",").map(seg => {
         const [tagRaw,qRaw] = seg.trim().split(";q=");
