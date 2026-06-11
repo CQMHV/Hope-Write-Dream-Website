@@ -1,0 +1,46 @@
+---
+type Props = {
+    brand: string;
+    hero: {
+        headline: string;
+        body: string;
+        primaryCta: string;
+        secondaryCta: string;
+        proofItems: string[];
+    };
+};
+
+const { brand, hero } = Astro.props;
+---
+
+<section class="hero-section page-section" aria-labelledby="hero-title">
+    <div class="hero-copy">
+        <h1 id="hero-title">{brand}</h1>
+        <p class="hero-headline">{hero.headline}</p>
+        <p class="hero-body">{hero.body}</p>
+        <div class="hero-actions">
+            <a class="button large primary" href="#projects">
+                <span>{hero.primaryCta}</span>
+                <i aria-hidden="true">arrow_forward</i>
+            </a>
+            <a class="button large secondary" href="#contact">{hero.secondaryCta}</a>
+        </div>
+    </div>
+    <div class="hero-panel large-padding round extra">
+        <div class="hero-panel__top">
+            <span class="shape-token shape-token--primary"></span>
+            <span class="shape-token shape-token--secondary"></span>
+            <span class="shape-token shape-token--tertiary"></span>
+        </div>
+        <div class="hero-panel__content">
+            {
+                hero.proofItems.map((item, index) => (
+                    <article class:list={["proof-card", `proof-card--${index + 1}`]}>
+                        <i aria-hidden="true">{index === 0 ? "diversity_3" : index === 1 ? "translate" : "cycle"}</i>
+                        <strong>{item}</strong>
+                    </article>
+                ))
+            }
+        </div>
+    </div>
+</section>

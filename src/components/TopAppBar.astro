@@ -1,0 +1,43 @@
+---
+import LanguageSwitcher from "@components/LanguageSwitcher.astro";
+import ThemeModeControl from "@components/ThemeModeControl.astro";
+import type { Locale } from "@data/site";
+
+type Props = {
+    locale: Locale;
+    brand: string;
+    nav: {
+        projects: string;
+        members: string;
+        contact: string;
+        social: string;
+    };
+    theme: {
+        label: string;
+        auto: string;
+        light: string;
+        dark: string;
+    };
+};
+
+const { locale, brand, nav, theme } = Astro.props;
+---
+
+<header class="top-app-bar">
+    <nav class="top-app-bar__inner" aria-label="Main">
+        <a class="brand-lockup" href={`/${locale}/`} aria-label={brand}>
+            <span class="brand-mark" aria-hidden="true">H</span>
+            <span>{brand}</span>
+        </a>
+        <div class="section-nav" aria-label="Sections">
+            <a class="chip small" href="#projects">{nav.projects}</a>
+            <a class="chip small" href="#members">{nav.members}</a>
+            <a class="chip small" href="#contact">{nav.contact}</a>
+            <a class="chip small" href="#social">{nav.social}</a>
+        </div>
+        <div class="top-actions">
+            <LanguageSwitcher locale={locale} />
+            <ThemeModeControl locale={locale} labels={theme} />
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,40 @@
+---
+type Channel = {
+    label: string;
+    value: string;
+    href: string;
+    icon: string;
+};
+
+type Props = {
+    heading: string;
+    body: string;
+    action: string;
+    channels: Channel[];
+};
+
+const { heading, body, action, channels } = Astro.props;
+const primary = channels[0];
+---
+
+<section id="contact" class="page-section contact-section" aria-labelledby="contact-title">
+    <div class="contact-copy">
+        <h2 id="contact-title">{heading}</h2>
+        <p>{body}</p>
+        {primary && <a class="button large primary" href={primary.href}>{action}</a>}
+    </div>
+    <div class="contact-list">
+        {
+            channels.map((channel) => (
+                <a class="contact-row round" href={channel.href} target={channel.href.startsWith("http") ? "_blank" : undefined} rel={channel.href.startsWith("http") ? "noopener noreferrer" : undefined}>
+                    <i aria-hidden="true">{channel.icon}</i>
+                    <span>
+                        <strong>{channel.label}</strong>
+                        <small>{channel.value}</small>
+                    </span>
+                    <i aria-hidden="true">arrow_outward</i>
+                </a>
+            ))
+        }
+    </div>
+</section>

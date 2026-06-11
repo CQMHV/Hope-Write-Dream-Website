@@ -1,0 +1,37 @@
+---
+import type { Locale } from "@data/site";
+
+type Props = {
+    locale: Locale;
+    labels: {
+        label: string;
+        auto: string;
+        light: string;
+        dark: string;
+    };
+};
+
+const { labels } = Astro.props;
+---
+
+<div class="theme-control menu-control" aria-label={labels.label} data-theme-control>
+    <button class="small round secondary" type="button" aria-haspopup="menu">
+        <i aria-hidden="true">routine</i>
+        <span data-theme-label>{labels.auto}</span>
+        <i aria-hidden="true">arrow_drop_down</i>
+    </button>
+    <menu class="right no-wrap" aria-label={labels.label}>
+        <li data-theme-choice="auto" data-theme-choice-label={labels.auto} role="menuitemradio" aria-checked="true" tabindex="0">
+            <i aria-hidden="true">routine</i>
+            <span>{labels.auto}</span>
+        </li>
+        <li data-theme-choice="light" data-theme-choice-label={labels.light} role="menuitemradio" aria-checked="false" tabindex="0">
+            <i aria-hidden="true">light_mode</i>
+            <span>{labels.light}</span>
+        </li>
+        <li data-theme-choice="dark" data-theme-choice-label={labels.dark} role="menuitemradio" aria-checked="false" tabindex="0">
+            <i aria-hidden="true">dark_mode</i>
+            <span>{labels.dark}</span>
+        </li>
+    </menu>
+</div>

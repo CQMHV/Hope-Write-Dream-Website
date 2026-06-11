@@ -1,0 +1,43 @@
+---
+type Project = {
+    name: string;
+    status: string;
+    description: string;
+    meta: string;
+    href: string;
+};
+
+type Props = {
+    heading: string;
+    body: string;
+    action: string;
+    items: Project[];
+};
+
+const { heading, body, action, items } = Astro.props;
+---
+
+<section id="projects" class="page-section stacked-section" aria-labelledby="projects-title">
+    <div class="section-heading">
+        <h2 id="projects-title">{heading}</h2>
+        <p>{body}</p>
+    </div>
+    <div class="project-grid">
+        {
+            items.map((project, index) => (
+                <article class:list={["project-card", "large-padding", "round", `project-card--${index + 1}`]}>
+                    <div>
+                        <span class="chip small">{project.status}</span>
+                        <p class="overline">{project.meta}</p>
+                        <h3>{project.name}</h3>
+                        <p>{project.description}</p>
+                    </div>
+                    <a class="button small transparent" href={project.href} target="_blank" rel="noopener noreferrer">
+                        <span>{action}</span>
+                        <i aria-hidden="true">open_in_new</i>
+                    </a>
+                </article>
+            ))
+        }
+    </div>
+</section>

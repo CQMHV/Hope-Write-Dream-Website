@@ -1,0 +1,28 @@
+---
+import TopAppBar from "@components/TopAppBar.astro";
+import HeroSection from "@components/HeroSection.astro";
+import ProjectsSection from "@components/ProjectsSection.astro";
+import MembersSection from "@components/MembersSection.astro";
+import ContactSection from "@components/ContactSection.astro";
+import SocialFooter from "@components/SocialFooter.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { localeMeta, translations, type Locale } from "@data/site";
+
+type Props = {
+    locale: Locale;
+};
+
+const { locale } = Astro.props;
+const t = translations[locale];
+---
+
+<BaseLayout locale={locale} title={t.title} description={t.description} ogLocale={localeMeta[locale].ogLocale}>
+    <TopAppBar locale={locale} brand={t.brand} nav={t.nav} theme={t.theme} />
+    <main>
+        <HeroSection brand={t.brand} hero={t.hero} />
+        <ProjectsSection heading={t.projects.heading} body={t.projects.body} action={t.projects.action} items={t.projects.items} />
+        <MembersSection heading={t.members.heading} body={t.members.body} items={t.members.items} />
+        <ContactSection heading={t.contact.heading} body={t.contact.body} action={t.contact.action} channels={t.contact.channels} />
+    </main>
+    <SocialFooter locale={locale} brand={t.brand} social={t.social} footer={t.footer} />
+</BaseLayout>

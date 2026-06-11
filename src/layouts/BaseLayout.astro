@@ -1,0 +1,90 @@
+---
+import "@fontsource/noto-sans/latin-400.css";
+import "@fontsource/noto-sans/latin-500.css";
+import "@fontsource/noto-sans/latin-700.css";
+import "@fontsource/noto-sans/latin-800.css";
+import "@fontsource/noto-sans/latin-ext-400.css";
+import "@fontsource/noto-sans/latin-ext-500.css";
+import "@fontsource/noto-sans/latin-ext-700.css";
+import "@fontsource/noto-sans/latin-ext-800.css";
+import "@fontsource/noto-sans-sc/chinese-simplified-400.css";
+import "@fontsource/noto-sans-sc/chinese-simplified-500.css";
+import "@fontsource/noto-sans-sc/chinese-simplified-700.css";
+import "@fontsource/noto-sans-sc/chinese-simplified-800.css";
+import "@fontsource/noto-sans-jp/japanese-400.css";
+import "@fontsource/noto-sans-jp/japanese-500.css";
+import "@fontsource/noto-sans-jp/japanese-700.css";
+import "@fontsource/noto-sans-jp/japanese-800.css";
+import "@fontsource/noto-sans-tc/chinese-traditional-400.css";
+import "@fontsource/noto-sans-tc/chinese-traditional-500.css";
+import "@fontsource/noto-sans-tc/chinese-traditional-700.css";
+import "@fontsource/noto-sans-tc/chinese-traditional-800.css";
+import "@fontsource/noto-sans-mono/latin-400.css";
+import "@fontsource/noto-sans-mono/latin-700.css";
+import "../styles/beer-local.css";
+import "../styles/global.css";
+import { localeMeta, locales, getLocaleUrl, type Locale } from "@data/site";
+
+type Props = {
+    locale: Locale;
+    title: string;
+    description: string;
+    ogLocale: string;
+};
+
+const { locale, title, description, ogLocale } = Astro.props;
+const canonical = new URL(getLocaleUrl(locale), Astro.site ?? "https://hopewritedream.com").toString();
+---
+
+<!doctype html>
+<html lang={localeMeta[locale].lang}>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="color-scheme" content="light dark" />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="robots" content="index,follow" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="canonical" href={canonical} />
+        {
+            locales.map((item) => (
+                <link
+                    rel="alternate"
+                    hreflang={localeMeta[item].lang.toLowerCase()}
+                    href={new URL(getLocaleUrl(item), Astro.site ?? "https://hopewritedream.com").toString()}
+                />
+            ))
+        }
+        <link
+            rel="alternate"
+            hreflang="x-default"
+            href={new URL(getLocaleUrl("zh-cn"), Astro.site ?? "https://hopewritedream.com").toString()}
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:locale" content={ogLocale} />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#111318" media="(prefers-color-scheme: dark)" />
+        <script is:inline>
+            (() => {
+                const stored = localStorage.getItem("theme-mode") || "auto";
+                const dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                const mode = stored === "auto" ? (dark ? "dark" : "light") : stored;
+                document.documentElement.dataset.themeMode = stored;
+                document.documentElement.classList.toggle("theme-dark", mode === "dark");
+            })();
+        </script>
+    </head>
+    <body>
+        <slot />
+        <script>
+            import "../scripts/app";
+        </script>
+    </body>
+</html>
