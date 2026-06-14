@@ -1,33 +1,32 @@
 {
-  "name": "hope-write-dream-website",
-  "version": "1.0.0",
-  "description": "A single-page multilingual team website built with Astro and Beer CSS.",
-  "type": "module",
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/CQMHV/Hope-Write-Dream-Website.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/CQMHV/Hope-Write-Dream-Website/issues"
-  },
-  "homepage": "https://github.com/CQMHV/Hope-Write-Dream-Website#readme",
-  "dependencies": {
-    "@fontsource/noto-sans": "^5.2.10",
-    "@fontsource/noto-sans-jp": "^5.2.9",
-    "@fontsource/noto-sans-mono": "^5.2.10",
-    "@fontsource/noto-sans-sc": "^5.2.9",
-    "@fontsource/noto-sans-tc": "^5.2.9",
-    "astro": "^6.4.6",
-    "beercss": "^4.0.21",
-    "material-dynamic-colors": "^1.1.4"
-  }
+    "name": "hope-write-dream-website",
+    "version": "1.0.0",
+    "description": "A minimal multilingual Astro website shell.",
+    "type": "module",
+    "scripts": {
+        "dev": "astro dev",
+        "build": "astro build",
+        "check": "astro check",
+        "preview": "astro preview",
+        "astro": "astro"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/CQMHV/Hope-Write-Dream-Website.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/CQMHV/Hope-Write-Dream-Website/issues"
+    },
+    "homepage": "https://github.com/CQMHV/Hope-Write-Dream-Website#readme",
+    "dependencies": {
+        "@astrojs/sitemap": "^3.7.3",
+        "astro": "^6.4.6"
+    },
+    "devDependencies": {
+        "@astrojs/check": "^0.9.9",
+        "typescript": "^6.0.3"
+    }
 }

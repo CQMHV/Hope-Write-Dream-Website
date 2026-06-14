@@ -1,29 +1,8 @@
 ---
-import "@fontsource/noto-sans/latin-400.css";
-import "@fontsource/noto-sans/latin-500.css";
-import "@fontsource/noto-sans/latin-700.css";
-import "@fontsource/noto-sans/latin-800.css";
-import "@fontsource/noto-sans/latin-ext-400.css";
-import "@fontsource/noto-sans/latin-ext-500.css";
-import "@fontsource/noto-sans/latin-ext-700.css";
-import "@fontsource/noto-sans/latin-ext-800.css";
-import "@fontsource/noto-sans-sc/chinese-simplified-400.css";
-import "@fontsource/noto-sans-sc/chinese-simplified-500.css";
-import "@fontsource/noto-sans-sc/chinese-simplified-700.css";
-import "@fontsource/noto-sans-sc/chinese-simplified-800.css";
-import "@fontsource/noto-sans-jp/japanese-400.css";
-import "@fontsource/noto-sans-jp/japanese-500.css";
-import "@fontsource/noto-sans-jp/japanese-700.css";
-import "@fontsource/noto-sans-jp/japanese-800.css";
-import "@fontsource/noto-sans-tc/chinese-traditional-400.css";
-import "@fontsource/noto-sans-tc/chinese-traditional-500.css";
-import "@fontsource/noto-sans-tc/chinese-traditional-700.css";
-import "@fontsource/noto-sans-tc/chinese-traditional-800.css";
-import "@fontsource/noto-sans-mono/latin-400.css";
-import "@fontsource/noto-sans-mono/latin-700.css";
-import "../styles/beer-local.css";
-import "../styles/global.css";
-import { localeMeta, locales, getLocaleUrl, type Locale } from "@data/site";
+import { siteConfig } from "@data/site-config.mjs";
+import { localeMeta, type Locale } from "@data/site";
+import { getAlternateLocaleLinks, getCanonicalUrl } from "@data/seo";
+import { themeModeStorageKey } from "@data/ui-preferences";
 
 type Props = {
     locale: Locale;
@@ -33,7 +12,58 @@ type Props = {
 };
 
 const { locale, title, description, ogLocale } = Astro.props;
-const canonical = new URL(getLocaleUrl(locale), Astro.site ?? "https://hopewritedream.com").toString();
+const siteUrl = Astro.site;
+
+if (!siteUrl) {
+    throw new Error("Astro site must be configured to generate absolute SEO URLs.");
+}
+
+const canonical = getCanonicalUrl(locale);
+const ogImage = new URL(siteConfig.ogImagePath, siteUrl).toString();
+const logoUrl = new URL(siteConfig.logoPath, siteUrl).toString();
+const alternateLinks = getAlternateLocaleLinks();
+const alternateOgLocales = alternateLinks.filter(
+    (item): item is typeof item & { routeLocale: Locale } => Boolean(item.routeLocale) && item.routeLocale !== locale,
+);
+const structuredData = [
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": new URL("/#organization", siteUrl).toString(),
+        name: siteConfig.name,
+        url: new URL("/", siteUrl).toString(),
+        logo: logoUrl,
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": new URL("/#website", siteUrl).toString(),
+        name: siteConfig.name,
+        url: new URL("/", siteUrl).toString(),
+        inLanguage: localeMeta[locale].lang,
+        publisher: {
+            "@id": new URL("/#organization", siteUrl).toString()
+        }
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${canonical}#webpage`,
+        url: canonical,
+        name: title,
+        description,
+        isPartOf: {
+            "@id": new URL("/#website", siteUrl).toString()
+        },
+        about: {
+            "@id": new URL("/#organization", siteUrl).toString()
+        },
+        inLanguage: localeMeta[locale].lang
+    }
+];
+const themeBootstrapConfig = {
+    themeModeStorageKey
+};
 ---
 
 <!doctype html>
@@ -45,46 +75,73 @@ const canonical = new URL(getLocaleUrl(locale), Astro.site ?? "https://hopewrite
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="robots" content="index,follow" />
+        <meta name="author" content={siteConfig.name} />
+        <meta name="application-name" content={siteConfig.name} />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="apple-touch-icon" href="/favicon.svg" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="sitemap" href="/sitemap-index.xml" />
         <link rel="canonical" href={canonical} />
         {
-            locales.map((item) => (
+            alternateLinks.map((item) => (
                 <link
                     rel="alternate"
-                    hreflang={localeMeta[item].lang.toLowerCase()}
-                    href={new URL(getLocaleUrl(item), Astro.site ?? "https://hopewritedream.com").toString()}
+                    hreflang={item.hreflang}
+                    href={item.href}
                 />
             ))
         }
-        <link
-            rel="alternate"
-            hreflang="x-default"
-            href={new URL(getLocaleUrl("zh-cn"), Astro.site ?? "https://hopewritedream.com").toString()}
-        />
         <meta property="og:type" content="website" />
+        <meta property="og:site_name" content={siteConfig.name} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />
         <meta property="og:locale" content={ogLocale} />
-        <meta name="twitter:card" content="summary" />
+        {
+            alternateOgLocales.map((item) => (
+                <meta property="og:locale:alternate" content={localeMeta[item.routeLocale].ogLocale} />
+            ))
+        }
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:image:type" content="image/svg+xml" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={`${siteConfig.name} social preview`} />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)" />
-        <meta name="theme-color" content="#111318" media="(prefers-color-scheme: dark)" />
+        <meta name="twitter:image" content={ogImage} />
+        <meta name="twitter:image:alt" content={`${siteConfig.name} social preview`} />
+        <meta name="theme-color" content={siteConfig.themeColorLight} media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content={siteConfig.themeColorDark} media="(prefers-color-scheme: dark)" />
+        <script is:inline type="application/json" id="theme-bootstrap-config" set:html={JSON.stringify(themeBootstrapConfig)} />
+        <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
         <script is:inline>
             (() => {
-                const stored = localStorage.getItem("theme-mode") || "auto";
-                const dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-                const mode = stored === "auto" ? (dark ? "dark" : "light") : stored;
-                document.documentElement.dataset.themeMode = stored;
-                document.documentElement.classList.toggle("theme-dark", mode === "dark");
+                let stored = "system";
+                const configElement = document.getElementById("theme-bootstrap-config");
+                const config = configElement?.textContent ? JSON.parse(configElement.textContent) : {};
+                const root = document.documentElement;
+
+                try {
+                    const value = localStorage.getItem(config.themeModeStorageKey);
+                    stored = value === "light" || value === "dark" || value === "system"
+                        ? value
+                        : "system";
+                } catch {
+                    stored = "system";
+                }
+
+                const systemMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+                const mode = stored === "system" ? systemMode : stored;
+
+                root.dataset.themeMode = mode;
+                root.style.colorScheme = mode;
             })();
         </script>
     </head>
     <body>
         <slot />
-        <script>
-            import "../scripts/app";
-        </script>
     </body>
 </html>

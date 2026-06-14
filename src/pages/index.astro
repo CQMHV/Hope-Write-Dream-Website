@@ -1,6 +1,130 @@
 ---
-import { getLocaleUrl } from "@data/site";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import {
+    defaultUiLocale,
+    supportedUiLocales,
+    uiLocaleToRouteLocale,
+} from "@data/i18n";
+import { siteConfig } from "@data/site-config.mjs";
+import { themeModeStorageKey, uiLocaleStorageKey } from "@data/ui-preferences";
 
-const target = getLocaleUrl("zh-cn");
-return Astro.redirect(target);
+const defaultLanguageRoute = getRelativeLocaleUrl(uiLocaleToRouteLocale(defaultUiLocale), "");
+const languageRouteMap = Object.fromEntries(
+    supportedUiLocales.map((uiLocale) => [uiLocale, getRelativeLocaleUrl(uiLocaleToRouteLocale(uiLocale), "")])
+);
+const languageConfig = {
+    defaultUiLocale,
+    themeModeStorageKey,
+    uiLocaleStorageKey,
+    supportedUiLocales,
+    languageRouteMap
+};
 ---
+
+<!doctype html>
+<html lang={defaultUiLocale}>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="noindex,nofollow" />
+        <title>{siteConfig.name}</title>
+        <script is:inline type="application/json" id="language-redirect-config" set:html={JSON.stringify(languageConfig)} />
+        <script is:inline>
+            (() => {
+                const configElement = document.getElementById("language-redirect-config");
+
+                if (!configElement?.textContent) {
+                    return;
+                }
+
+                const config = JSON.parse(configElement.textContent);
+                const supportedUiLocales = Array.isArray(config.supportedUiLocales) ? config.supportedUiLocales : [];
+                const uiLocaleAliases = Object.fromEntries(
+                    supportedUiLocales.map((locale) => [String(locale).toLowerCase(), locale])
+                );
+
+                function normalizeUiLocale(locale) {
+                    if (!locale) {
+                        return null;
+                    }
+
+                    const normalized = String(locale).trim().replaceAll("_", "-");
+                    const lower = normalized.toLowerCase();
+
+                    if (uiLocaleAliases[lower]) {
+                        return uiLocaleAliases[lower];
+                    }
+
+                    return null;
+                }
+
+                function normalizeBrowserUiLocale(locale) {
+                    const exactLocale = normalizeUiLocale(locale);
+
+                    if (exactLocale || !locale) {
+                        return exactLocale;
+                    }
+
+                    const normalized = String(locale).trim().replaceAll("_", "-").toLowerCase();
+
+                    if (normalized.startsWith("zh-tw") || normalized.startsWith("zh-hk") || normalized.startsWith("zh-mo")) {
+                        return "zh-TW";
+                    }
+
+                    if (normalized.startsWith("zh")) {
+                        return "zh-CN";
+                    }
+
+                    if (normalized.startsWith("ja")) {
+                        return "ja-JP";
+                    }
+
+                    if (normalized.startsWith("en")) {
+                        return "en-US";
+                    }
+
+                    return null;
+                }
+
+                function getStoredLocale() {
+                    try {
+                        return localStorage.getItem(config.uiLocaleStorageKey);
+                    } catch {
+                        return null;
+                    }
+                }
+
+                function getStoredThemeMode() {
+                    try {
+                        return localStorage.getItem(config.themeModeStorageKey);
+                    } catch {
+                        return null;
+                    }
+                }
+
+                const root = document.documentElement;
+                const storedThemeMode = getStoredThemeMode();
+                const systemThemeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+                const themeMode = ["light", "dark", "system"].includes(storedThemeMode) ? storedThemeMode : "system";
+                const resolvedThemeMode = themeMode === "system" ? systemThemeMode : themeMode;
+                const browserLocales = navigator.languages?.length ? navigator.languages : [navigator.language];
+                const storedLocale = normalizeUiLocale(getStoredLocale());
+                const browserLocale = browserLocales.map(normalizeBrowserUiLocale).find(Boolean);
+                const defaultLocale = normalizeUiLocale(config.defaultUiLocale) || "en-US";
+                const targetLocale = storedLocale || browserLocale || defaultLocale;
+                const targetRoute = config.languageRouteMap?.[targetLocale] || config.languageRouteMap?.[defaultLocale];
+
+                root.dataset.themeMode = resolvedThemeMode;
+                root.style.colorScheme = resolvedThemeMode;
+
+                if (targetRoute && window.location.pathname !== targetRoute) {
+                    window.location.replace(targetRoute);
+                }
+            })();
+        </script>
+        <noscript>
+            <meta http-equiv="refresh" content={`0; url=${defaultLanguageRoute}`} />
+        </noscript>
+    </head>
+    <body></body>
+</html>

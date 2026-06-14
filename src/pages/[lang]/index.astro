@@ -1,0 +1,19 @@
+---
+import TeamPage from "@components/TeamPage.astro";
+import { locales, type Locale } from "@data/site";
+
+export function getStaticPaths() {
+    return locales.map((lang) => ({
+        params: { lang },
+        props: { lang },
+    }));
+}
+
+type Props = {
+    lang: Locale;
+};
+
+const { lang } = Astro.props;
+---
+
+<TeamPage locale={lang} />
