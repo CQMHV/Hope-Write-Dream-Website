@@ -167,6 +167,25 @@ body.dark .team-hero-card {
     line-height: 1;
 }
 
+.team-project,
+.team-member,
+.team-contact-item {
+    min-width: 0;
+}
+
+.team-project > .max,
+.team-member > div:not(.shape),
+.team-contact-item span {
+    min-width: 0;
+}
+
+.team-project h3,
+.team-member h3,
+.team-project p,
+.team-member p {
+    overflow-wrap: anywhere;
+}
+
 .team-project {
     background:
         linear-gradient(135deg, rgba(187, 222, 251, 0.32), transparent 38%),
@@ -369,33 +388,29 @@ body.dark .team-contact-item:nth-child(3) {
     }
 
     .team-section.grid {
-        display: block;
+        gap: 1.5rem;
         padding-inline: 0 !important;
     }
 
-    .team-section.grid > * + * {
-        margin-block-start: 1.5rem;
+    .team-section .grid.large-space {
+        gap: 1rem;
     }
 
-    .team-section.grid > * {
-        width: 100% !important;
-        max-width: 100% !important;
+    .team-project.row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
     }
 
-    .team-section article,
-    .team-contact-item,
-    .team-footer.grid > * {
-        width: calc(100% - 1px) !important;
-        max-width: calc(100% - 1px) !important;
+    .team-project > .shape,
+    .team-project > .chip.fill,
+    .team-member > .shape {
+        flex: none;
     }
 
     .team-contact-item {
         min-height: auto;
-    }
-
-    .team-section.grid > *,
-    .team-section .grid > * {
-        padding-inline: 0 !important;
+        align-items: flex-start;
     }
 
     .team-footer-links {
