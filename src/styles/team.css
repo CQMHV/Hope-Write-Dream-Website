@@ -55,24 +55,19 @@ body.dark {
     display: grid;
     min-height: min(34rem, calc(100svh - 5.5rem));
     align-items: center;
+    padding-block: clamp(1.5rem, 4vw, 3.5rem);
 }
 
 .team-hero-card {
     overflow: hidden;
     min-height: clamp(24rem, 52svh, 31rem);
-    padding-inline-end: clamp(18rem, 29vw, 25rem);
+    padding: clamp(2rem, 4vw, 4rem);
     background:
-        linear-gradient(135deg, rgba(255, 236, 179, 0.32), transparent 18rem),
-        linear-gradient(150deg, rgba(187, 222, 251, 0.28), transparent 24rem),
-        linear-gradient(165deg, rgba(240, 244, 195, 0.28), transparent 30rem),
         linear-gradient(160deg, #ffffff, #ddebe7 82%);
 }
 
 body.dark .team-hero-card {
     background:
-        linear-gradient(135deg, rgba(255, 236, 179, 0.12), transparent 18rem),
-        linear-gradient(150deg, rgba(187, 222, 251, 0.12), transparent 24rem),
-        linear-gradient(165deg, rgba(240, 244, 195, 0.1), transparent 30rem),
         linear-gradient(160deg, #111e1c, #202c2a 82%);
 }
 
@@ -91,7 +86,6 @@ body.dark .team-hero-card {
 }
 
 .team-hero-copy h1 {
-    max-width: 12ch;
     font-weight: 900;
     line-height: 1.04;
 }
@@ -106,13 +100,12 @@ body.dark .team-hero-card {
 
 .team-hero-decoration {
     position: absolute;
-    top: 50%;
     right: clamp(1.35rem, 4vw, 3rem);
-    z-index: 1;
+    bottom: clamp(1.25rem, 3vw, 2.5rem);
+    z-index: 0;
     display: block;
-    width: clamp(14rem, 22vw, 25rem);
-    min-height: clamp(16rem, 25vw, 28rem);
-    transform: translateY(calc(-50% + clamp(0.8rem, 1.8vw, 1.35rem)));
+    width: clamp(16rem, calc(14rem + 6vw), 21rem);
+    height: clamp(16.5rem, calc(14rem + 7vw), 22rem);
     pointer-events: none;
 }
 
@@ -123,34 +116,34 @@ body.dark .team-hero-card {
 .team-hero-shape.extra {
     aspect-ratio: 1;
     block-size: auto;
-    inline-size: 48%;
+    inline-size: min(9rem, 46%);
 }
 
 .team-hero-shape.large {
     aspect-ratio: 1;
     block-size: auto;
-    inline-size: 38%;
+    inline-size: min(7.5rem, 38%);
 }
 
 .team-hero-shape.medium {
     aspect-ratio: 1;
     block-size: auto;
-    inline-size: 31%;
+    inline-size: min(6.5rem, 32%);
 }
 
 .team-hero-shape:nth-child(1) {
-    top: 2%;
-    right: 3%;
+    right: 0;
+    bottom: 54%;
 }
 
 .team-hero-shape:nth-child(2) {
-    top: 39%;
-    left: 5%;
+    right: 35%;
+    bottom: 25%;
 }
 
 .team-hero-shape:nth-child(3) {
-    right: 19%;
-    bottom: 5%;
+    right: 11%;
+    bottom: 0;
 }
 
 .team-hero-shape > i {
@@ -326,17 +319,11 @@ body.dark .team-contact-item:nth-child(3) {
 }
 
 @media (max-width: 64rem) {
-    .team-hero {
-        min-height: auto;
-    }
-
     .team-hero-card {
-        min-height: auto;
-        padding-inline-end: 1.5rem;
+        padding: clamp(1.5rem, 5vw, 2.5rem);
     }
 
     .team-hero-decoration {
-        z-index: 0;
         opacity: 0.28;
     }
 }
@@ -369,7 +356,6 @@ body.dark .team-contact-item:nth-child(3) {
     }
 
     .team-hero-copy h1 {
-        max-width: 9.5ch;
         font-size: clamp(3rem, 14vw, 3.6rem);
     }
 
@@ -384,6 +370,7 @@ body.dark .team-contact-item:nth-child(3) {
     }
 
     .team-actions .button {
+        box-sizing: border-box;
         width: 100%;
     }
 
