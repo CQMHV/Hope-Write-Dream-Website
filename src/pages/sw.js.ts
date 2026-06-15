@@ -10,7 +10,7 @@ const precacheUrls = [
     siteConfig.pwaIcon512Path,
 ];
 
-export const GET: APIRoute = () => new Response(`const CACHE_NAME = ${JSON.stringify(serviceWorkerCacheName)};
+const serviceWorkerScript = `const CACHE_NAME = ${JSON.stringify(serviceWorkerCacheName)};
 const PRECACHE_URLS = ${JSON.stringify(precacheUrls, null, 4)};
 
 self.addEventListener("install", (event) => {
@@ -75,8 +75,10 @@ self.addEventListener("fetch", (event) => {
         }),
     );
 });
-`, {
+`;
+
+export const GET = (() => new Response(serviceWorkerScript, {
     headers: {
         "Content-Type": "text/javascript; charset=utf-8",
     },
-});
+})) satisfies APIRoute;

@@ -13,6 +13,7 @@ function shouldStripOptimizeDependency(dependency) {
 }
 
 // Keep Vite's dev dependency optimizer away from Astro-injected entries that fail pre-bundling on Windows.
+// Verified with Astro 6.4.6 / Vite 7.3.0 even when Astro dev toolbar is disabled.
 const stripAstroToolbarOptimizeDeps = {
     name: "strip-astro-toolbar-optimize-deps",
     configEnvironment(environmentName, options) {
@@ -64,6 +65,8 @@ export default defineConfig({
             exclude: [
                 "aria-query",
                 "axobject-query",
+                "@material/material-color-utilities",
+                "material-dynamic-colors",
             ],
         },
     },
