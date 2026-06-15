@@ -8,7 +8,7 @@ import {
     uiLocaleToRouteLocale,
     type RouteLocale,
     type UiLocale,
-} from "@data/i18n";
+} from "@/data/i18n";
 
 export const uiLocaleStorageKey = "ui_locale";
 export const themeModeStorageKey = "theme_mode";

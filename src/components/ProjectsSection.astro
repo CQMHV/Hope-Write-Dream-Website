@@ -1,0 +1,53 @@
+---
+import type { Translation } from "@/data/site";
+
+type Props = {
+    translation: Translation;
+};
+
+const { translation: t } = Astro.props;
+const cardStyles = [
+    {
+        shape: "circle",
+        color: "blue2 black-text",
+        chips: ["Roadmap", "Delivery"]
+    },
+    {
+        shape: "arch",
+        color: "amber2 black-text",
+        chips: ["Design", "System"]
+    },
+    {
+        shape: "puffy",
+        color: "teal2 black-text",
+        chips: ["Community", "Docs"]
+    }
+];
+---
+
+<section class="team-section grid large-space large-padding" id="projects" aria-labelledby="projects-title">
+    <div class="s12 l4">
+        <h2 class="small" id="projects-title">{t.projects.heading}</h2>
+        <p class="large-line">{t.projects.intro}</p>
+    </div>
+    <div class="s12 l8 grid large-space">
+        {t.projects.items.map((project, index) => (
+            <article class="s12 team-project row wrap large-space surface-container large-padding round">
+                <div class={`shape extra ${cardStyles[index].shape} ${cardStyles[index].color}`} aria-hidden="true">
+                    <i>{project.icon}</i>
+                </div>
+                <div class="max">
+                    <h3>{project.name}</h3>
+                    <p class="large-line">{project.summary}</p>
+                    <p>{project.detail}</p>
+                    <div class="row wrap small-space">
+                        {cardStyles[index].chips.map((chip) => (
+                            <span class="chip">{chip}</span>
+                        ))}
+                    </div>
+                </div>
+                <span class="chip fill">{project.status}</span>
+            </article>
+        ))}
+    </div>
+</section>

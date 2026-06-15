@@ -1,0 +1,23 @@
+---
+type NavItem = {
+    href: string;
+    label: string;
+    icon: string;
+};
+
+type Props = {
+    label: string;
+    navItems: NavItem[];
+};
+
+const { label, navItems } = Astro.props;
+---
+
+<nav class="bottom s team-bottom-nav" aria-label={label}>
+    {navItems.map((item) => (
+        <a href={item.href}>
+            <i>{item.icon}</i>
+            <span>{item.label}</span>
+        </a>
+    ))}
+</nav>

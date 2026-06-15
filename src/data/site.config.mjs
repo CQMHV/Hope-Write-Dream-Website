@@ -1,12 +1,21 @@
 export const siteConfig = {
     name: "Hope Write Dream Team",
+    heroName: "Hope Write Dream",
     shortName: "HWD Team",
-    description: "A one-page multilingual team website for Hope Write Dream Team.",
+    description: "A multilingual team page for the projects, people, and contact channels behind Hope Write Dream Team.",
     url: "https://hopewritedream.com",
     logoPath: "/favicon.svg",
     ogImagePath: "/og-image.svg",
     pwaIcon192Path: "/assets/icon-192.png",
     pwaIcon512Path: "/assets/icon-512.png",
+    contactEmail: "hello@hopewritedream.com",
+    repositoryUrl: "https://github.com/CQMHV/Hope-Write-Dream-Website",
+    issuesUrl: "https://github.com/CQMHV/Hope-Write-Dream-Website/issues",
+    socialLinks: {
+        github: "https://github.com/CQMHV/Hope-Write-Dream-Website",
+        website: "https://hopewritedream.com",
+        email: "mailto:hello@hopewritedream.com"
+    },
     themeSeedColor: "#009688",
     themeColorLight: "#eefdf8",
     themeColorDark: "#091614",

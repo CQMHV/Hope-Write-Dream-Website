@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { siteConfig } from "@data/site-config.mjs";
+import { siteConfig } from "@/data/site.config.mjs";
 
 function escapeXml(value: string) {
     return value

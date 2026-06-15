@@ -1,0 +1,25 @@
+---
+import type { Translation } from "@/data/site";
+
+type Props = {
+    translation: Translation;
+};
+
+const { translation: t } = Astro.props;
+---
+
+<footer class="team-footer responsive grid large-space large-padding" id="social">
+    <div class="s12 l5">
+        <h2 class="small">{t.social.heading}</h2>
+        <p class="large-line">{t.social.intro}</p>
+    </div>
+    <nav class="s12 l7 row wrap medium-space team-footer-links" aria-label={t.social.heading}>
+        {t.social.items.map((item) => (
+            <a class="button border round" href={item.href}>
+                <i>{item.icon}</i>
+                <span>{item.label}</span>
+            </a>
+        ))}
+    </nav>
+    <p class="s12">{t.footer}</p>
+</footer>

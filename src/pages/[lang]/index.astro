@@ -1,6 +1,14 @@
 ---
-import TeamPage from "@components/TeamPage.astro";
-import { locales, type Locale } from "@data/site";
+import AppHeader from "@/components/AppHeader.astro";
+import BottomNav from "@/components/BottomNav.astro";
+import ContactSection from "@/components/ContactSection.astro";
+import Hero from "@/components/Hero.astro";
+import MembersSection from "@/components/MembersSection.astro";
+import ProjectsSection from "@/components/ProjectsSection.astro";
+import SiteFooter from "@/components/SiteFooter.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { localeMeta, locales, translations, type Locale } from "@/data/site";
+import "@/styles/team.css";
 
 export function getStaticPaths() {
     return locales.map((lang) => ({
@@ -14,6 +22,41 @@ type Props = {
 };
 
 const { lang } = Astro.props;
+const t = translations[lang];
+const navItems = [
+    {
+        href: "#projects",
+        label: t.nav.projects,
+        icon: "workspaces"
+    },
+    {
+        href: "#members",
+        label: t.nav.members,
+        icon: "group"
+    },
+    {
+        href: "#contact",
+        label: t.nav.contact,
+        icon: "mail"
+    },
+    {
+        href: "#social",
+        label: t.nav.social,
+        icon: "share"
+    }
+];
 ---
 
-<TeamPage locale={lang} />
+<BaseLayout locale={lang} title={t.title} description={t.description} ogLocale={localeMeta[lang].ogLocale}>
+    <div class="team-shell">
+        <AppHeader locale={lang} translation={t} navItems={navItems} />
+        <BottomNav label={t.nav.projects} navItems={navItems} />
+        <main class="responsive large-padding">
+            <Hero translation={t} />
+            <ProjectsSection translation={t} />
+            <MembersSection translation={t} />
+            <ContactSection translation={t} />
+        </main>
+        <SiteFooter translation={t} />
+    </div>
+</BaseLayout>

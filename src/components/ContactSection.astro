@@ -1,0 +1,32 @@
+---
+import type { Translation } from "@/data/site";
+
+type Props = {
+    translation: Translation;
+};
+
+const { translation: t } = Astro.props;
+const contactIconStyles = [
+    "amber2 black-text",
+    "blue2 black-text",
+    "lime2 black-text"
+];
+---
+
+<section class="team-section grid large-space large-padding" id="contact" aria-labelledby="contact-title">
+    <div class="s12 l4">
+        <h2 class="small" id="contact-title">{t.contact.heading}</h2>
+        <p class="large-line">{t.contact.intro}</p>
+    </div>
+    <div class="s12 l8 grid large-space">
+        {t.contact.items.map((item, index) => (
+            <a class="s12 m6 l4 team-contact-item no-wave surface-container-high large-padding round" href={item.href}>
+                <i class={contactIconStyles[index]}>{item.icon}</i>
+                <span>
+                    <strong>{item.label}</strong>
+                    <small>{item.value}</small>
+                </span>
+            </a>
+        ))}
+    </div>
+</section>

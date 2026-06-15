@@ -1,0 +1,68 @@
+---
+import type { Translation } from "@/data/site";
+import { siteConfig } from "@/data/site.config.mjs";
+
+type Props = {
+    translation: Translation;
+};
+
+const { translation: t } = Astro.props;
+const heroShapeStyles = [
+    {
+        shape: "soft-burst",
+        size: "extra",
+        motion: "slow-rotate",
+        color: "amber2 black-text",
+        icon: "favorite"
+    },
+    {
+        shape: "sunny",
+        size: "large",
+        motion: "rotate",
+        color: "blue2 black-text",
+        icon: "edit_note"
+    },
+    {
+        shape: "sided-cookie12",
+        size: "medium",
+        motion: "fast-rotate",
+        color: "lime2 black-text",
+        icon: "auto_awesome"
+    }
+];
+---
+
+<section class="team-hero" aria-labelledby="hero-title">
+    <article class="team-hero-card surface-container-high large-padding large-round">
+        <div class="team-hero-copy">
+            <h1 class="large" id="hero-title">{siteConfig.heroName}</h1>
+            <p class="team-hero-statement h5 bold large-line">{t.hero.heading}</p>
+            <p class="large-text large-line">{t.hero.lead}</p>
+            <div class="team-actions row wrap medium-space">
+                <a class="button large round primary-container" href="#contact">
+                    <i>send</i>
+                    <span>{t.hero.primaryAction}</span>
+                </a>
+                <a class="button large border round" href="#projects">
+                    <i>workspaces</i>
+                    <span>{t.hero.secondaryAction}</span>
+                </a>
+            </div>
+            <div class="team-proof-list row wrap small-space">
+                {t.hero.proof.map((item) => (
+                    <span class="chip border">
+                        <i>check_circle</i>
+                        {item}
+                    </span>
+                ))}
+            </div>
+        </div>
+        <div class="team-hero-decoration" aria-hidden="true">
+            {heroShapeStyles.map((item) => (
+                <div class={`team-hero-shape shape ${item.size} ${item.shape} ${item.motion} ${item.color}`}>
+                    <i>{item.icon}</i>
+                </div>
+            ))}
+        </div>
+    </article>
+</section>

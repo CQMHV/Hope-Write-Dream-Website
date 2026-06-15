@@ -1,0 +1,93 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { localeMeta, locales, type Locale, type Translation } from "@/data/site";
+import { defaultThemeMode } from "@/data/ui-preferences";
+import { siteConfig } from "@/data/site.config.mjs";
+
+type NavItem = {
+    href: string;
+    label: string;
+    icon: string;
+};
+
+type Props = {
+    locale: Locale;
+    translation: Translation;
+    navItems: NavItem[];
+};
+
+const { locale, translation: t, navItems } = Astro.props;
+const themeOptions = [
+    {
+        value: "system",
+        label: t.controls.system,
+        icon: "contrast"
+    },
+    {
+        value: "light",
+        label: t.controls.light,
+        icon: "light_mode"
+    },
+    {
+        value: "dark",
+        label: t.controls.dark,
+        icon: "dark_mode"
+    }
+];
+---
+
+<header class="team-header fixed transparent small-blur">
+    <nav class="responsive">
+        <a class="team-brand no-wave" href={getRelativeLocaleUrl(locale, "")} aria-label={siteConfig.name}>
+            <span class="team-brand-mark black-text" aria-hidden="true">HWD</span>
+            <span>{siteConfig.name}</span>
+        </a>
+        <div class="max"></div>
+        {navItems.map((item) => (
+            <a class="button transparent round m l" href={item.href}>{item.label}</a>
+        ))}
+        <a class="button round primary-container m l" href="#contact">
+            <i>send</i>
+            <span>{t.hero.primaryAction}</span>
+        </a>
+        <div class="team-menu-wrap">
+            <button class="circle primary-container" type="button" aria-label={t.controls.language} aria-haspopup="menu">
+                <i>translate</i>
+            </button>
+            <menu class="left no-wrap" aria-label={t.controls.language}>
+                {locales.map((item) => (
+                    <li
+                        data-language={item}
+                        data-ui-locale={localeMeta[item].lang}
+                        data-route={getRelativeLocaleUrl(item, "")}
+                        class:list={[{ active: item === locale }]}
+                        tabindex="0"
+                        aria-selected={item === locale ? "true" : "false"}
+                    >
+                        <a href={getRelativeLocaleUrl(item, "")}>
+                            {localeMeta[item].label}
+                        </a>
+                    </li>
+                ))}
+            </menu>
+        </div>
+        <div class="team-menu-wrap">
+            <button class="circle primary-container" type="button" aria-label={t.controls.theme} aria-haspopup="menu">
+                <i>contrast</i>
+            </button>
+            <menu class="left no-wrap" aria-label={t.controls.theme}>
+                {themeOptions.map((item) => (
+                    <li
+                        data-theme-mode-value={item.value}
+                        class:list={[{ active: item.value === defaultThemeMode }]}
+                        tabindex="0"
+                        aria-selected={item.value === defaultThemeMode ? "true" : "false"}
+                    >
+                        <i>{item.icon}</i>
+                        <span>{item.label}</span>
+                    </li>
+                ))}
+            </menu>
+        </div>
+    </nav>
+</header>

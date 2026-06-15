@@ -1,19 +1,19 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
-import type { Plugin } from "vite";
 import { defaultRouteLocale, supportedRouteLocales, supportedUiLocales } from "./src/data/i18n.config.mjs";
-import { siteConfig } from "./src/data/site-config.mjs";
+import { siteConfig } from "./src/data/site.config.mjs";
 
+const site = siteConfig.url;
 const sitemapLocales = Object.fromEntries(
     supportedUiLocales.map((locale) => [locale.toLowerCase(), locale]),
 );
 
-function shouldStripOptimizeDependency(dependency: string) {
+function shouldStripOptimizeDependency(dependency) {
     return dependency.startsWith("astro > ") || dependency.includes("dev-toolbar");
 }
 
 // Keep Vite's dev dependency optimizer away from Astro-injected entries that fail pre-bundling on Windows.
-const stripAstroToolbarOptimizeDeps: Plugin = {
+const stripAstroToolbarOptimizeDeps = {
     name: "strip-astro-toolbar-optimize-deps",
     configEnvironment(environmentName, options) {
         if (environmentName !== "client") {
@@ -36,35 +36,35 @@ const stripAstroToolbarOptimizeDeps: Plugin = {
 };
 
 export default defineConfig({
-    site: siteConfig.url,
+    site,
     output: "static",
     devToolbar: {
-        enabled: false
+        enabled: false,
     },
     integrations: [
         sitemap({
             i18n: {
                 defaultLocale: defaultRouteLocale,
-                locales: sitemapLocales
+                locales: sitemapLocales,
             },
-            filter: (page) => page !== `${siteConfig.url}/`
-        })
+            filter: (page) => page !== `${site}/`,
+        }),
     ],
     i18n: {
         locales: supportedRouteLocales,
         defaultLocale: defaultRouteLocale,
         routing: {
             prefixDefaultLocale: true,
-            redirectToDefaultLocale: false
-        }
+            redirectToDefaultLocale: false,
+        },
     },
     vite: {
         plugins: [stripAstroToolbarOptimizeDeps],
         optimizeDeps: {
             exclude: [
                 "aria-query",
-                "axobject-query"
-            ]
-        }
-    }
+                "axobject-query",
+            ],
+        },
+    },
 });

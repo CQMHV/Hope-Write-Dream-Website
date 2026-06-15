@@ -5,7 +5,7 @@ import {
     supportedRouteLocales,
     type RouteLocale,
     type UiLocale,
-} from "@data/i18n";
+} from "@/data/i18n";
 
 export type AlternateLocaleLink = {
     hreflang: UiLocale | "x-default";

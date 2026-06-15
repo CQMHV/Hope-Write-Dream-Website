@@ -4,9 +4,9 @@ import {
     defaultUiLocale,
     supportedUiLocales,
     uiLocaleToRouteLocale,
-} from "@data/i18n";
-import { siteConfig } from "@data/site-config.mjs";
-import { themeModeStorageKey, uiLocaleStorageKey } from "@data/ui-preferences";
+} from "@/data/i18n";
+import { siteConfig } from "@/data/site.config.mjs";
+import { themeModeStorageKey, uiLocaleStorageKey } from "@/data/ui-preferences";
 
 const defaultLanguageRoute = getRelativeLocaleUrl(uiLocaleToRouteLocale(defaultUiLocale), "");
 const languageRouteMap = Object.fromEntries(

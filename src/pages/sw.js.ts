@@ -1,6 +1,6 @@
 import type { APIRoute } from "astro";
-import { supportedRouteLocales } from "@data/i18n";
-import { siteConfig } from "@data/site-config.mjs";
+import { supportedRouteLocales } from "@/data/i18n";
+import { siteConfig } from "@/data/site.config.mjs";
 
 const precacheUrls = [
     "/",

@@ -4,9 +4,9 @@
     "description": "A minimal multilingual Astro website shell.",
     "type": "module",
     "scripts": {
-        "dev": "astro dev",
-        "build": "astro build",
-        "check": "astro check",
+        "dev": "node scripts/generate-beer-theme.mjs && astro dev",
+        "build": "node scripts/generate-beer-theme.mjs && astro build",
+        "check": "node scripts/generate-beer-theme.mjs && astro check",
         "preview": "astro preview",
         "astro": "astro"
     },
@@ -23,7 +23,13 @@
     "homepage": "https://github.com/CQMHV/Hope-Write-Dream-Website#readme",
     "dependencies": {
         "@astrojs/sitemap": "^3.7.3",
-        "astro": "^6.4.6"
+        "@fontsource/noto-sans": "^5.2.10",
+        "@fontsource/noto-sans-jp": "^5.2.9",
+        "@fontsource/noto-sans-sc": "^5.2.9",
+        "@fontsource/noto-sans-tc": "^5.2.9",
+        "@material/material-color-utilities": "^0.3.0",
+        "astro": "^6.4.6",
+        "beercss": "^4.0.21"
     },
     "devDependencies": {
         "@astrojs/check": "^0.9.9",

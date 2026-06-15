@@ -1,12 +1,21 @@
 export const siteConfig: {
     readonly name: "Hope Write Dream Team";
+    readonly heroName: "Hope Write Dream";
     readonly shortName: "HWD Team";
-    readonly description: "A one-page multilingual team website for Hope Write Dream Team.";
+    readonly description: "A multilingual team page for the projects, people, and contact channels behind Hope Write Dream Team.";
     readonly url: "https://hopewritedream.com";
     readonly logoPath: "/favicon.svg";
     readonly ogImagePath: "/og-image.svg";
     readonly pwaIcon192Path: "/assets/icon-192.png";
     readonly pwaIcon512Path: "/assets/icon-512.png";
+    readonly contactEmail: "hello@hopewritedream.com";
+    readonly repositoryUrl: "https://github.com/CQMHV/Hope-Write-Dream-Website";
+    readonly issuesUrl: "https://github.com/CQMHV/Hope-Write-Dream-Website/issues";
+    readonly socialLinks: {
+        readonly github: "https://github.com/CQMHV/Hope-Write-Dream-Website";
+        readonly website: "https://hopewritedream.com";
+        readonly email: "mailto:hello@hopewritedream.com";
+    };
     readonly themeSeedColor: "#009688";
     readonly themeColorLight: "#eefdf8";
     readonly themeColorDark: "#091614";

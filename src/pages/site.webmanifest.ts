@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { siteConfig } from "@data/site-config.mjs";
+import { siteConfig } from "@/data/site.config.mjs";
 
 export const GET: APIRoute = () => {
     const manifest = {

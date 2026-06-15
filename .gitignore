@@ -1,6 +1,9 @@
 node_modules/
 dist/
 .astro/
+src/generated/
+public/beercss/
+public/fonts/
 .env
 .env.*
 !.env.example
