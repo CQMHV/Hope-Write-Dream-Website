@@ -16,6 +16,13 @@ export const siteConfig = {
         website: "https://www.hopewritedream.com",
         email: "mailto:hello@hopewritedream.com"
     },
+    projectLinks: {
+        website: "https://www.hopewritedream.com/",
+        vrchatAvatarLearn: "https://vrcal.cqmhv.com/",
+        vrchatDataHub: "https://vrchat-data-hub.cqmhv.com/",
+        alcomd3: "https://alcomd3.cqmhv.com/",
+        tools: "https://tool.cqmhv.com/"
+    },
     themeSeedColor: "#009688",
     themeColorLight: "#eefdf8",
     themeColorDark: "#091614",

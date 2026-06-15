@@ -39,6 +39,7 @@ export type ProjectItem = {
     summary: string;
     status: string;
     detail: string;
+    href: string;
     icon: string;
 };
 
@@ -152,28 +153,47 @@ export const translations: Record<Locale, Translation> = {
         },
         projects: {
             heading: "团队项目",
-            intro: "这些项目代表当前的协作方向：站点基础设施、内容本地化和社区反馈闭环。",
+            intro: "这里展示了团队迄今为止的所有项目的入口。",
             items: [
                 {
                     name: "Hope Write Dream Website",
-                    summary: "团队主页、SEO、PWA manifest 与多语言路由的统一入口。",
-                    status: "建设中",
-                    detail: "当前版本聚焦单页团队展示和清晰的联系路径。",
-                    icon: "travel_explore"
-                },
-                {
-                    name: "Multilingual Content Kit",
-                    summary: "为简体中文、繁体中文、日语和英语维护一致的页面语义。",
-                    status: "规划中",
-                    detail: "减少重复文案和硬编码，让内容扩展保持可维护。",
-                    icon: "translate"
-                },
-                {
-                    name: "Community Feedback Loop",
-                    summary: "通过公开 Issue 汇总建议、问题与后续迭代线索。",
+                    summary: "Hope Write Dream Team 的主页入口，集中展示团队项目、成员与联系渠道。",
                     status: "开放中",
-                    detail: "把联系渠道和代码仓库连接到同一条反馈路径。",
-                    icon: "forum"
+                    detail: "作为团队对外说明和项目导航的统一首页。",
+                    href: siteConfig.projectLinks.website,
+                    icon: "public"
+                },
+                {
+                    name: "VRChatAvatarLearn - VRCAL",
+                    summary: "面向 VRChat 改模学习的教程与资料入口。",
+                    status: "更新中",
+                    detail: "帮助用户按步骤理解常见改模工具、流程和问题，并为 AI 提供可靠的 VRChat 改模知识库。",
+                    href: siteConfig.projectLinks.vrchatAvatarLearn,
+                    icon: "school"
+                },
+                {
+                    name: "VRChat Data Hub",
+                    summary: "汇总 VRChat 相关数据、索引与查询入口。",
+                    status: "开发中",
+                    detail: "为 VRChat 玩家在游戏中的日常文件托管需求提供更方便的实现方案。",
+                    href: siteConfig.projectLinks.vrchatDataHub,
+                    icon: "dataset"
+                },
+                {
+                    name: "ALCOMD3 VRChat 工程文件管理器",
+                    summary: "用于管理 VRChat 工程文件的工具项目。",
+                    status: "开放中",
+                    detail: "围绕工程文件整理、打开和管理流程提升效率，提供更为方便且赏心悦目的工程管理工具。",
+                    href: siteConfig.projectLinks.alcomd3,
+                    icon: "folder_open"
+                },
+                {
+                    name: "Toolbox | 实用工具集合",
+                    summary: "收纳日常使用的小工具和轻量功能入口，或许，还含有一些有趣的东西。",
+                    status: "开发中",
+                    detail: "将常用的辅助功能实现出来，并把分散的功能集中到一个更容易访问的位置。",
+                    href: siteConfig.projectLinks.tools,
+                    icon: "construction"
                 }
             ]
         },
@@ -257,28 +277,47 @@ export const translations: Record<Locale, Translation> = {
         },
         projects: {
             heading: "目前團隊專案",
-            intro: "這些專案代表目前的協作方向：站點基礎設施、內容在地化和社群回饋閉環。",
+            intro: "這些專案涵蓋團隊首頁、VRChat 學習資料、資料索引、工程檔案管理和常用工具。",
             items: [
                 {
-                    name: "Hope Write Dream Website",
-                    summary: "團隊首頁、SEO、PWA manifest 與多語路由的統一入口。",
-                    status: "建設中",
-                    detail: "目前版本聚焦單頁團隊展示和清晰的聯絡路徑。",
-                    icon: "travel_explore"
+                    name: "本站",
+                    summary: "Hope Write Dream Team 的首頁入口，集中展示團隊專案、成員與聯絡渠道。",
+                    status: "維護中",
+                    detail: "作為團隊對外說明和專案導覽的統一首頁。",
+                    href: siteConfig.projectLinks.website,
+                    icon: "public"
                 },
                 {
-                    name: "Multilingual Content Kit",
-                    summary: "為簡體中文、繁體中文、日語和英語維護一致的頁面語義。",
-                    status: "規劃中",
-                    detail: "減少重複文案和硬編碼，讓內容擴展保持可維護。",
-                    icon: "translate"
+                    name: "VRChat Avatar Learn 改模教程",
+                    summary: "面向 VRChat 頭像改模學習的教程與資料入口。",
+                    status: "更新中",
+                    detail: "協助使用者按步驟理解工具、流程和常見改模問題。",
+                    href: siteConfig.projectLinks.vrchatAvatarLearn,
+                    icon: "school"
                 },
                 {
-                    name: "Community Feedback Loop",
-                    summary: "透過公開 Issue 匯總建議、問題與後續迭代線索。",
+                    name: "VRChat 資料中心",
+                    summary: "彙整 VRChat 相關資料、索引與查詢入口。",
                     status: "開放中",
-                    detail: "把聯絡渠道和程式碼倉庫連接到同一條回饋路徑。",
-                    icon: "forum"
+                    detail: "為內容整理、檢索和後續資料分析提供基礎。",
+                    href: siteConfig.projectLinks.vrchatDataHub,
+                    icon: "dataset"
+                },
+                {
+                    name: "ALCOMD3 VRChat 工程檔案管理器",
+                    summary: "用於管理 VRChat 工程檔案的工具專案。",
+                    status: "維護中",
+                    detail: "圍繞工程檔案整理、開啟和管理流程提升效率。",
+                    href: siteConfig.projectLinks.alcomd3,
+                    icon: "folder_open"
+                },
+                {
+                    name: "實用工具",
+                    summary: "收納團隊日常使用的小工具和輕量功能入口。",
+                    status: "開放中",
+                    detail: "把分散的輔助功能集中到一個更容易存取的位置。",
+                    href: siteConfig.projectLinks.tools,
+                    icon: "construction"
                 }
             ]
         },
@@ -362,28 +401,47 @@ export const translations: Record<Locale, Translation> = {
         },
         projects: {
             heading: "現在のチームプロジェクト",
-            intro: "現在の協働テーマは、サイト基盤、コンテンツのローカライズ、コミュニティフィードバックです。",
+            intro: "チームページ、VRChat 学習資料、データ索引、プロジェクトファイル管理、便利ツールを扱っています。",
             items: [
                 {
-                    name: "Hope Write Dream Website",
-                    summary: "チームページ、SEO、PWA manifest、多言語ルーティングをまとめる入口です。",
-                    status: "進行中",
-                    detail: "現在の版では、単一ページのチーム紹介と明確な連絡導線に集中しています。",
-                    icon: "travel_explore"
+                    name: "本站",
+                    summary: "Hope Write Dream Team のプロジェクト、メンバー、連絡先をまとめる入口です。",
+                    status: "保守中",
+                    detail: "チーム紹介とプロジェクト案内を一か所にまとめます。",
+                    href: siteConfig.projectLinks.website,
+                    icon: "public"
                 },
                 {
-                    name: "Multilingual Content Kit",
-                    summary: "簡体字中国語、繁体字中国語、日本語、英語で一貫した意味構造を保ちます。",
-                    status: "計画中",
-                    detail: "重複コピーとハードコードを減らし、拡張しやすいコンテンツにします。",
-                    icon: "translate"
+                    name: "VRChat Avatar Learn 改模教程",
+                    summary: "VRChat アバター改変を学ぶためのチュートリアルと資料です。",
+                    status: "更新中",
+                    detail: "ツール、流れ、よくある問題を段階的に理解できるようにします。",
+                    href: siteConfig.projectLinks.vrchatAvatarLearn,
+                    icon: "school"
                 },
                 {
-                    name: "Community Feedback Loop",
-                    summary: "公開 Issue で提案、問題、次の改善を集約します。",
+                    name: "VRChat データセンター",
+                    summary: "VRChat 関連データ、索引、検索入口をまとめます。",
                     status: "公開中",
-                    detail: "連絡先とリポジトリを同じフィードバック導線につなぎます。",
-                    icon: "forum"
+                    detail: "コンテンツ整理、検索、今後のデータ分析の土台になります。",
+                    href: siteConfig.projectLinks.vrchatDataHub,
+                    icon: "dataset"
+                },
+                {
+                    name: "ALCOMD3 VRChat 工程文件管理器",
+                    summary: "VRChat プロジェクトファイルを管理するためのツールです。",
+                    status: "保守中",
+                    detail: "ファイル整理、起動、管理の流れを扱いやすくします。",
+                    href: siteConfig.projectLinks.alcomd3,
+                    icon: "folder_open"
+                },
+                {
+                    name: "実用ツール",
+                    summary: "日常的に使う小さなツールと軽量機能をまとめた入口です。",
+                    status: "公開中",
+                    detail: "分散した補助機能を見つけやすい場所に集約します。",
+                    href: siteConfig.projectLinks.tools,
+                    icon: "construction"
                 }
             ]
         },
@@ -467,28 +525,47 @@ export const translations: Record<Locale, Translation> = {
         },
         projects: {
             heading: "Current Projects",
-            intro: "These projects show the team's current focus: site infrastructure, localized content, and a community feedback loop.",
+            intro: "These projects cover the team homepage, VRChat learning resources, data indexes, project file management, and utility tools.",
             items: [
                 {
-                    name: "Hope Write Dream Website",
-                    summary: "A single entry for the team page, SEO, PWA manifest, and multilingual routes.",
-                    status: "In progress",
-                    detail: "This version focuses on one-page team presentation and clear contact paths.",
-                    icon: "travel_explore"
+                    name: "Website",
+                    summary: "The Hope Write Dream Team homepage for projects, members, and contact channels.",
+                    status: "Maintained",
+                    detail: "A single public entry for team information and project navigation.",
+                    href: siteConfig.projectLinks.website,
+                    icon: "public"
                 },
                 {
-                    name: "Multilingual Content Kit",
-                    summary: "A consistent semantic layer for Simplified Chinese, Traditional Chinese, Japanese, and English.",
-                    status: "Planned",
-                    detail: "It reduces duplicated copy and hardcoded strings as the site grows.",
-                    icon: "translate"
+                    name: "VRChat Avatar Learn",
+                    summary: "Tutorials and resources for learning VRChat avatar modification.",
+                    status: "Updating",
+                    detail: "Step-by-step guidance for tools, workflows, and common avatar editing issues.",
+                    href: siteConfig.projectLinks.vrchatAvatarLearn,
+                    icon: "school"
                 },
                 {
-                    name: "Community Feedback Loop",
-                    summary: "A public Issue flow for suggestions, bugs, and future iteration signals.",
+                    name: "VRChat Data Hub",
+                    summary: "A collected entry for VRChat-related data, indexes, and lookup surfaces.",
                     status: "Open",
-                    detail: "It connects contact channels and the code repository into one feedback path.",
-                    icon: "forum"
+                    detail: "It supports content organization, discovery, and future data analysis.",
+                    href: siteConfig.projectLinks.vrchatDataHub,
+                    icon: "dataset"
+                },
+                {
+                    name: "ALCOMD3 VRChat Project Manager",
+                    summary: "A tool project for managing VRChat project files.",
+                    status: "Maintained",
+                    detail: "It improves workflows around organizing, opening, and managing project files.",
+                    href: siteConfig.projectLinks.alcomd3,
+                    icon: "folder_open"
+                },
+                {
+                    name: "Utility Tools",
+                    summary: "A compact entry for daily utilities and lightweight helper features.",
+                    status: "Open",
+                    detail: "It collects scattered helper functions in one easier-to-reach place.",
+                    href: siteConfig.projectLinks.tools,
+                    icon: "construction"
                 }
             ]
         },

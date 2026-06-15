@@ -16,6 +16,13 @@ export const siteConfig: {
         readonly website: "https://www.hopewritedream.com";
         readonly email: "mailto:hello@hopewritedream.com";
     };
+    readonly projectLinks: {
+        readonly website: "https://www.hopewritedream.com/";
+        readonly vrchatAvatarLearn: "https://vrcal.cqmhv.com/";
+        readonly vrchatDataHub: "https://vrchat-data-hub.cqmhv.com/";
+        readonly alcomd3: "https://alcomd3.cqmhv.com/";
+        readonly tools: "https://tool.cqmhv.com/";
+    };
     readonly themeSeedColor: "#009688";
     readonly themeColorLight: "#eefdf8";
     readonly themeColorDark: "#091614";

@@ -6,18 +6,25 @@ type Props = {
 };
 
 const { translation: t } = Astro.props;
+const socialIconStyles = [
+    "teal2 black-text",
+    "blue2 black-text",
+    "lime2 black-text"
+];
 ---
 
 <footer class="team-footer responsive grid large-space large-padding" id="social">
-    <div class="s12 l5">
+    <div class="s12 l4">
         <h2 class="small">{t.social.heading}</h2>
         <p class="large-line">{t.social.intro}</p>
     </div>
-    <nav class="s12 l7 row wrap medium-space team-footer-links" aria-label={t.social.heading}>
-        {t.social.items.map((item) => (
-            <a class="button border round" href={item.href}>
-                <i>{item.icon}</i>
-                <span>{item.label}</span>
+    <nav class="s12 l8 grid large-space team-footer-links" aria-label={t.social.heading}>
+        {t.social.items.map((item, index) => (
+            <a class="s12 m4 team-social-item no-wave surface-container-high large-padding round" href={item.href}>
+                <i class={socialIconStyles[index]}>{item.icon}</i>
+                <span>
+                    <strong>{item.label}</strong>
+                </span>
             </a>
         ))}
     </nav>

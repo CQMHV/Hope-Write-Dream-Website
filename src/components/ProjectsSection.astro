@@ -10,17 +10,27 @@ const cardStyles = [
     {
         shape: "circle",
         color: "blue2 black-text",
-        chips: ["Roadmap", "Delivery"]
+        chips: ["Website", "Hub"]
     },
     {
-        shape: "arch",
+        shape: "bun",
         color: "amber2 black-text",
-        chips: ["Design", "System"]
+        chips: ["VRChat", "Tutorial"]
     },
     {
         shape: "puffy",
         color: "teal2 black-text",
-        chips: ["Community", "Docs"]
+        chips: ["Data", "Index"]
+    },
+    {
+        shape: "arch",
+        color: "green2 black-text",
+        chips: ["Project", "Manager"]
+    },
+    {
+        shape: "sided-cookie12",
+        color: "lime2 black-text",
+        chips: ["Tools", "Utility"]
     }
 ];
 ---
@@ -32,7 +42,7 @@ const cardStyles = [
     </div>
     <div class="s12 l8 grid large-space">
         {t.projects.items.map((project, index) => (
-            <article class="s12 team-project row wrap large-space surface-container large-padding round">
+            <a class="s12 team-project row wrap large-space surface-container large-padding round" href={project.href}>
                 <div class={`shape extra ${cardStyles[index].shape} ${cardStyles[index].color}`} aria-hidden="true">
                     <i>{project.icon}</i>
                 </div>
@@ -47,7 +57,7 @@ const cardStyles = [
                     </div>
                 </div>
                 <span class="chip fill">{project.status}</span>
-            </article>
+            </a>
         ))}
     </div>
 </section>
