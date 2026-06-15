@@ -1,6 +1,6 @@
 import type { APIRoute } from "astro";
 import { supportedRouteLocales } from "@/data/i18n";
-import { siteConfig } from "@/data/site.config.mjs";
+import { serviceWorkerCacheName, siteConfig } from "@/data/site.config.mjs";
 
 const precacheUrls = [
     "/",
@@ -10,7 +10,7 @@ const precacheUrls = [
     siteConfig.pwaIcon512Path,
 ];
 
-export const GET: APIRoute = () => new Response(`const CACHE_NAME = ${JSON.stringify(`${siteConfig.shortName.toLowerCase().replaceAll(/[^a-z0-9]+/g, "-").replaceAll(/^-|-$/g, "")}-site-v1`)};
+export const GET: APIRoute = () => new Response(`const CACHE_NAME = ${JSON.stringify(serviceWorkerCacheName)};
 const PRECACHE_URLS = ${JSON.stringify(precacheUrls, null, 4)};
 
 self.addEventListener("install", (event) => {

@@ -3,17 +3,17 @@ export const siteConfig = {
     heroName: "Hope Write Dream",
     shortName: "HWD Team",
     description: "A multilingual team page for the projects, people, and contact channels behind Hope Write Dream Team.",
-    url: "https://hopewritedream.com",
-    logoPath: "/favicon.svg",
+    url: "https://www.hopewritedream.com",
+    logoPath: "/images/hopewritedream-logo-light.webp",
     ogImagePath: "/og-image.svg",
-    pwaIcon192Path: "/assets/icon-192.png",
-    pwaIcon512Path: "/assets/icon-512.png",
+    pwaIcon192Path: "/images/icons/icon-192.png",
+    pwaIcon512Path: "/images/icons/icon-512.png",
     contactEmail: "hello@hopewritedream.com",
     repositoryUrl: "https://github.com/CQMHV/Hope-Write-Dream-Website",
     issuesUrl: "https://github.com/CQMHV/Hope-Write-Dream-Website/issues",
     socialLinks: {
         github: "https://github.com/CQMHV/Hope-Write-Dream-Website",
-        website: "https://hopewritedream.com",
+        website: "https://www.hopewritedream.com",
         email: "mailto:hello@hopewritedream.com"
     },
     themeSeedColor: "#009688",
@@ -36,3 +36,5 @@ export const siteConfig = {
         secondaryText: "#1e4d51",
     },
 };
+
+export const serviceWorkerCacheName = "hwd-team-site-v7";

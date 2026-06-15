@@ -3,17 +3,17 @@ export const siteConfig: {
     readonly heroName: "Hope Write Dream";
     readonly shortName: "HWD Team";
     readonly description: "A multilingual team page for the projects, people, and contact channels behind Hope Write Dream Team.";
-    readonly url: "https://hopewritedream.com";
-    readonly logoPath: "/favicon.svg";
+    readonly url: "https://www.hopewritedream.com";
+    readonly logoPath: "/images/hopewritedream-logo-light.webp";
     readonly ogImagePath: "/og-image.svg";
-    readonly pwaIcon192Path: "/assets/icon-192.png";
-    readonly pwaIcon512Path: "/assets/icon-512.png";
+    readonly pwaIcon192Path: "/images/icons/icon-192.png";
+    readonly pwaIcon512Path: "/images/icons/icon-512.png";
     readonly contactEmail: "hello@hopewritedream.com";
     readonly repositoryUrl: "https://github.com/CQMHV/Hope-Write-Dream-Website";
     readonly issuesUrl: "https://github.com/CQMHV/Hope-Write-Dream-Website/issues";
     readonly socialLinks: {
         readonly github: "https://github.com/CQMHV/Hope-Write-Dream-Website";
-        readonly website: "https://hopewritedream.com";
+        readonly website: "https://www.hopewritedream.com";
         readonly email: "mailto:hello@hopewritedream.com";
     };
     readonly themeSeedColor: "#009688";
@@ -36,3 +36,5 @@ export const siteConfig: {
         readonly secondaryText: "#1e4d51";
     };
 };
+
+export const serviceWorkerCacheName: "hwd-team-site-v7";

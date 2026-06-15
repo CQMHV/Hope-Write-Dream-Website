@@ -1,6 +1,7 @@
 ---
-import "../generated/beer-themed.css";
-import "../generated/noto-fonts.css";
+import "@/generated/beer-themed.css";
+import "@/generated/noto-fonts.css";
+import "@/styles/site-background.css";
 import ClientScripts from "@/components/ClientScripts.astro";
 import { siteConfig } from "@/data/site.config.mjs";
 import { localeMeta, type Locale } from "@/data/site";
@@ -108,8 +109,13 @@ const fontPreloads = [
         <meta name="author" content={siteConfig.name} />
         <meta name="application-name" content={siteConfig.name} />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="apple-touch-icon" href="/favicon.svg" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-light-16.png" media="(prefers-color-scheme: light)" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-light-32.png" media="(prefers-color-scheme: light)" />
+        <link rel="icon" type="image/png" sizes="64x64" href="/images/icons/favicon-light-64.png" media="(prefers-color-scheme: light)" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-dark-16.png" media="(prefers-color-scheme: dark)" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-dark-32.png" media="(prefers-color-scheme: dark)" />
+        <link rel="icon" type="image/png" sizes="64x64" href="/images/icons/favicon-dark-64.png" media="(prefers-color-scheme: dark)" />
+        <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="sitemap" href="/sitemap-index.xml" />
         <link rel="canonical" href={canonical} />
@@ -177,7 +183,7 @@ const fontPreloads = [
             })();
         </script>
     </head>
-    <body class="light">
+    <body>
         <script is:inline>
             (() => {
                 const mode = document.documentElement.dataset.themeMode === "dark" ? "dark" : "light";

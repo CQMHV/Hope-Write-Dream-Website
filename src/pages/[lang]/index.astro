@@ -48,15 +48,13 @@ const navItems = [
 ---
 
 <BaseLayout locale={lang} title={t.title} description={t.description} ogLocale={localeMeta[lang].ogLocale}>
-    <div class="team-shell">
-        <AppHeader locale={lang} translation={t} navItems={navItems} />
-        <BottomNav label={t.nav.projects} navItems={navItems} />
-        <main class="responsive large-padding">
-            <Hero translation={t} />
-            <ProjectsSection translation={t} />
-            <MembersSection translation={t} />
-            <ContactSection translation={t} />
-        </main>
-        <SiteFooter translation={t} />
-    </div>
+    <AppHeader locale={lang} translation={t} navItems={navItems} />
+    <BottomNav label={t.nav.projects} navItems={navItems} />
+    <main class="responsive large-padding">
+        <Hero translation={t} />
+        <ProjectsSection translation={t} />
+        <MembersSection translation={t} />
+        <ContactSection translation={t} />
+    </main>
+    <SiteFooter translation={t} />
 </BaseLayout>
