@@ -23,6 +23,16 @@ export const siteConfig = {
         alcomd3: "https://alcomd3.cqmhv.com/",
         tools: "https://tool.cqmhv.com/"
     },
+    memberAvatars: {
+        cqmhv: "/images/members/cqmhv-avatar.png"
+    },
+    memberLinks: {
+        cqmhv: "https://cqmhv.hopewritedream.com/",
+        distances000: "https://distances000.hopewritedream.com/",
+        aerith: "https://aerith.hopewritedream.com/",
+        yukioooooo0: "https://Yukioooooo0.hopewritedream.com/",
+        joinUs: "https://www.hopewritedream.com/zh-cn/more/#join-us"
+    },
     themeSeedColor: "#009688",
     themeColorLight: "#eefdf8",
     themeColorDark: "#091614",

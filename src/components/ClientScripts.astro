@@ -9,7 +9,6 @@
         type ThemeModePreference,
     } from "@/data/ui-preferences";
 
-    const menuButtons = document.querySelectorAll<HTMLButtonElement>(".team-menu-wrap > button");
     const languageOptions = document.querySelectorAll<HTMLElement>("[data-language]");
     const themeModeOptions = document.querySelectorAll<HTMLElement>("[data-theme-mode-value]");
     const themeModeQuery = window.matchMedia("(prefers-color-scheme: dark)");
@@ -85,27 +84,6 @@
         });
     }
 
-    function closeActiveMenus() {
-        document.querySelectorAll("menu.active").forEach((menu) => {
-            menu.classList.remove("active");
-        });
-
-        if (document.activeElement instanceof HTMLElement) {
-            document.activeElement.blur();
-        }
-    }
-
-    function toggleMenu(button: HTMLButtonElement) {
-        const menu = button.parentElement?.querySelector("menu");
-        const isActive = menu?.classList.contains("active");
-
-        closeActiveMenus();
-
-        if (menu && !isActive) {
-            menu.classList.add("active");
-        }
-    }
-
     function selectLanguage(option: HTMLElement) {
         const selectedUiLocale = option.dataset.uiLocale;
         const selectedRouteLocale = option.dataset.language;
@@ -121,7 +99,6 @@
         });
 
         setLocalStorageValue(uiLocaleStorageKey, preferences.ui_locale);
-        closeActiveMenus();
 
         if (getRouteLocaleFromPath(window.location.pathname) !== selectedRouteLocale) {
             window.location.href = targetRoute;
@@ -139,28 +116,13 @@
 
         setLocalStorageValue(themeModeStorageKey, preferences.theme_mode);
         applyThemeMode(preferences.theme_mode);
-        closeActiveMenus();
     }
 
     applyThemeMode(resolveCurrentPreferences().theme_mode);
 
-    menuButtons.forEach((button) => {
-        button.addEventListener("click", (event) => {
-            event.stopPropagation();
-            toggleMenu(button);
-        });
-    });
-
     languageOptions.forEach((option) => {
         option.addEventListener("click", () => {
             selectLanguage(option);
-        });
-
-        option.addEventListener("keydown", (event: KeyboardEvent) => {
-            if (event.key === "Enter" || event.key === " ") {
-                event.preventDefault();
-                selectLanguage(option);
-            }
         });
     });
 
@@ -168,21 +130,6 @@
         option.addEventListener("click", () => {
             selectThemeMode(option);
         });
-
-        option.addEventListener("keydown", (event: KeyboardEvent) => {
-            if (event.key === "Enter" || event.key === " ") {
-                event.preventDefault();
-                selectThemeMode(option);
-            }
-        });
-    });
-
-    document.addEventListener("click", (event) => {
-        const target = event.target instanceof Element ? event.target : null;
-
-        if (!target?.closest("menu.active")) {
-            closeActiveMenus();
-        }
     });
 
     themeModeQuery.addEventListener("change", () => {

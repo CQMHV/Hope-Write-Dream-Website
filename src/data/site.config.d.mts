@@ -23,6 +23,16 @@ export const siteConfig: {
         readonly alcomd3: "https://alcomd3.cqmhv.com/";
         readonly tools: "https://tool.cqmhv.com/";
     };
+    readonly memberAvatars: {
+        readonly cqmhv: "/images/members/cqmhv-avatar.png";
+    };
+    readonly memberLinks: {
+        readonly cqmhv: "https://cqmhv.hopewritedream.com/";
+        readonly distances000: "https://distances000.hopewritedream.com/";
+        readonly aerith: "https://aerith.hopewritedream.com/";
+        readonly yukioooooo0: "https://Yukioooooo0.hopewritedream.com/";
+        readonly joinUs: "https://www.hopewritedream.com/zh-cn/more/#join-us";
+    };
     readonly themeSeedColor: "#009688";
     readonly themeColorLight: "#eefdf8";
     readonly themeColorDark: "#091614";

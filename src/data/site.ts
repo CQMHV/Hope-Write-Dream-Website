@@ -48,6 +48,8 @@ export type MemberItem = {
     role: string;
     focus: string;
     initials: string;
+    href: string;
+    avatarSrc?: string;
 };
 
 export type ContactItem = {
@@ -199,25 +201,43 @@ export const translations: Record<Locale, Translation> = {
         },
         members: {
             heading: "团队成员",
-            intro: "小型团队用清晰分工协作，覆盖产品、内容、设计和工程。",
+            intro: "团队成员共同负责站点建设、项目开发、运营支持和社区服务。",
             items: [
                 {
-                    name: "Hope",
-                    role: "产品与方向",
-                    focus: "定义项目目标、优先级和社区协作节奏。",
-                    initials: "H"
+                    name: "CQMHV 才倾梦华V",
+                    role: "站点创始人",
+                    focus: "全栈开发者，项目维护者。",
+                    initials: "C",
+                    href: siteConfig.memberLinks.cqmhv,
+                    avatarSrc: siteConfig.memberAvatars.cqmhv
                 },
                 {
-                    name: "Write",
-                    role: "内容与本地化",
-                    focus: "维护多语言文案、SEO 语义和信息架构。",
-                    initials: "W"
+                    name: "distances000 曹懿",
+                    role: "全栈开发者",
+                    focus: "项目运营。",
+                    initials: "D",
+                    href: siteConfig.memberLinks.distances000
                 },
                 {
-                    name: "Dream",
-                    role: "设计与前端",
-                    focus: "把 MD3E 设计系统落地为可访问的 Astro 页面。",
-                    initials: "D"
+                    name: "Aerith",
+                    role: "中文论坛运营",
+                    focus: "网站中国区 CDN 加速。",
+                    initials: "A",
+                    href: siteConfig.memberLinks.aerith
+                },
+                {
+                    name: "Yukioooooo0",
+                    role: "Yuki",
+                    focus: "Hope Write Dream 团队成员。",
+                    initials: "Y",
+                    href: siteConfig.memberLinks.yukioooooo0
+                },
+                {
+                    name: "屏幕前的你",
+                    role: "加入我们",
+                    focus: "Hope Write Dream！",
+                    initials: "你",
+                    href: siteConfig.memberLinks.joinUs
                 }
             ]
         },
@@ -323,25 +343,43 @@ export const translations: Record<Locale, Translation> = {
         },
         members: {
             heading: "團隊成員",
-            intro: "小型團隊以清晰分工協作，覆蓋產品、內容、設計和工程。",
+            intro: "團隊成員共同負責站點建設、專案開發、營運支援和社群服務。",
             items: [
                 {
-                    name: "Hope",
-                    role: "產品與方向",
-                    focus: "定義專案目標、優先級和社群協作節奏。",
-                    initials: "H"
+                    name: "CQMHV 才傾夢華V",
+                    role: "站點創始人",
+                    focus: "全端開發者，專案維護者。",
+                    initials: "C",
+                    href: siteConfig.memberLinks.cqmhv,
+                    avatarSrc: siteConfig.memberAvatars.cqmhv
                 },
                 {
-                    name: "Write",
-                    role: "內容與在地化",
-                    focus: "維護多語文案、SEO 語義和資訊架構。",
-                    initials: "W"
+                    name: "distances000 曹懿",
+                    role: "全端開發者",
+                    focus: "專案營運。",
+                    initials: "D",
+                    href: siteConfig.memberLinks.distances000
                 },
                 {
-                    name: "Dream",
-                    role: "設計與前端",
-                    focus: "把 MD3E 設計系統落地為可存取的 Astro 頁面。",
-                    initials: "D"
+                    name: "Aerith",
+                    role: "中文論壇營運",
+                    focus: "網站中國區 CDN 加速。",
+                    initials: "A",
+                    href: siteConfig.memberLinks.aerith
+                },
+                {
+                    name: "Yukioooooo0",
+                    role: "Yuki",
+                    focus: "Hope Write Dream 團隊成員。",
+                    initials: "Y",
+                    href: siteConfig.memberLinks.yukioooooo0
+                },
+                {
+                    name: "螢幕前的你",
+                    role: "加入我們",
+                    focus: "Hope Write Dream！",
+                    initials: "你",
+                    href: siteConfig.memberLinks.joinUs
                 }
             ]
         },
@@ -447,25 +485,43 @@ export const translations: Record<Locale, Translation> = {
         },
         members: {
             heading: "チームメンバー",
-            intro: "小さなチームが、プロダクト、コンテンツ、デザイン、エンジニアリングを分担します。",
+            intro: "チームメンバーは、サイト構築、プロジェクト開発、運営支援、コミュニティサービスを共同で担当しています。",
             items: [
                 {
-                    name: "Hope",
-                    role: "プロダクトと方向性",
-                    focus: "目標、優先順位、コミュニティ協働のリズムを定義します。",
-                    initials: "H"
+                    name: "CQMHV 才倾梦华V",
+                    role: "サイト創設者",
+                    focus: "フルスタック開発者、プロジェクトメンテナー。",
+                    initials: "C",
+                    href: siteConfig.memberLinks.cqmhv,
+                    avatarSrc: siteConfig.memberAvatars.cqmhv
                 },
                 {
-                    name: "Write",
-                    role: "コンテンツとローカライズ",
-                    focus: "多言語コピー、SEO セマンティクス、情報設計を管理します。",
-                    initials: "W"
+                    name: "distances000 曹懿",
+                    role: "フルスタック開発者",
+                    focus: "プロジェクト運営。",
+                    initials: "D",
+                    href: siteConfig.memberLinks.distances000
                 },
                 {
-                    name: "Dream",
-                    role: "デザインとフロントエンド",
-                    focus: "MD3E の設計をアクセシブルな Astro ページとして実装します。",
-                    initials: "D"
+                    name: "Aerith",
+                    role: "中国語フォーラム運営",
+                    focus: "中国リージョン向け CDN 加速。",
+                    initials: "A",
+                    href: siteConfig.memberLinks.aerith
+                },
+                {
+                    name: "Yukioooooo0",
+                    role: "Yuki",
+                    focus: "Hope Write Dream チームメンバー。",
+                    initials: "Y",
+                    href: siteConfig.memberLinks.yukioooooo0
+                },
+                {
+                    name: "画面の前のあなた",
+                    role: "参加しませんか",
+                    focus: "Hope Write Dream！",
+                    initials: "君",
+                    href: siteConfig.memberLinks.joinUs
                 }
             ]
         },
@@ -571,25 +627,43 @@ export const translations: Record<Locale, Translation> = {
         },
         members: {
             heading: "Team Members",
-            intro: "A small team with clear ownership across product, content, design, and engineering.",
+            intro: "The team works together on site building, project development, operations support, and community services.",
             items: [
                 {
-                    name: "Hope",
-                    role: "Product Direction",
-                    focus: "Defines goals, priorities, and the rhythm for community collaboration.",
-                    initials: "H"
+                    name: "CQMHV Caiqingmenghua V",
+                    role: "Site Founder",
+                    focus: "Full-stack developer and project maintainer.",
+                    initials: "C",
+                    href: siteConfig.memberLinks.cqmhv,
+                    avatarSrc: siteConfig.memberAvatars.cqmhv
                 },
                 {
-                    name: "Write",
-                    role: "Content & Localization",
-                    focus: "Maintains multilingual copy, SEO semantics, and information architecture.",
-                    initials: "W"
+                    name: "distances000 Caoyi",
+                    role: "Full-stack Developer",
+                    focus: "Project operations.",
+                    initials: "D",
+                    href: siteConfig.memberLinks.distances000
                 },
                 {
-                    name: "Dream",
-                    role: "Design & Frontend",
-                    focus: "Turns the MD3E design system into an accessible Astro experience.",
-                    initials: "D"
+                    name: "Aerith",
+                    role: "Chinese Forum Operations",
+                    focus: "China-region CDN acceleration for the website.",
+                    initials: "A",
+                    href: siteConfig.memberLinks.aerith
+                },
+                {
+                    name: "Yukioooooo0",
+                    role: "Yuki",
+                    focus: "Hope Write Dream team member.",
+                    initials: "Y",
+                    href: siteConfig.memberLinks.yukioooooo0
+                },
+                {
+                    name: "You in front of the screen",
+                    role: "Join us",
+                    focus: "Hope Write Dream!",
+                    initials: "U",
+                    href: siteConfig.memberLinks.joinUs
                 }
             ]
         },

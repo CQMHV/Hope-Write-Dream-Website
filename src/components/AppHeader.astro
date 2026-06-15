@@ -58,17 +58,16 @@ const themeOptions = [
             <a class="button transparent round m l" href={item.href}>{item.label}</a>
         ))}
         <div class="team-menu-wrap">
-            <button class="circle primary-container" type="button" aria-label={t.controls.language} aria-haspopup="menu">
+            <button class="circle primary-container" type="button" aria-label={t.controls.language} aria-haspopup="menu" aria-controls="language-menu" data-ui="#language-menu">
                 <i>translate</i>
             </button>
-            <menu class="left no-wrap" aria-label={t.controls.language}>
+            <menu class="left no-wrap" id="language-menu" aria-label={t.controls.language}>
                 {locales.map((item) => (
                     <li
                         data-language={item}
                         data-ui-locale={localeMeta[item].lang}
                         data-route={getRelativeLocaleUrl(item, "")}
                         class:list={[{ active: item === locale }]}
-                        tabindex="0"
                         aria-selected={item === locale ? "true" : "false"}
                     >
                         <a href={getRelativeLocaleUrl(item, "")}>
@@ -79,15 +78,14 @@ const themeOptions = [
             </menu>
         </div>
         <div class="team-menu-wrap">
-            <button class="circle primary-container" type="button" aria-label={t.controls.theme} aria-haspopup="menu">
+            <button class="circle primary-container" type="button" aria-label={t.controls.theme} aria-haspopup="menu" aria-controls="theme-menu" data-ui="#theme-menu">
                 <i>contrast</i>
             </button>
-            <menu class="left no-wrap" aria-label={t.controls.theme}>
+            <menu class="left no-wrap" id="theme-menu" aria-label={t.controls.theme}>
                 {themeOptions.map((item) => (
                     <li
                         data-theme-mode-value={item.value}
                         class:list={[{ active: item.value === defaultThemeMode }]}
-                        tabindex="0"
                         aria-selected={item.value === defaultThemeMode ? "true" : "false"}
                     >
                         <i>{item.icon}</i>
