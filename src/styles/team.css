@@ -176,6 +176,14 @@ body.dark .team-hero-card {
     scroll-margin-top: 5.5rem;
 }
 
+@container (min-width: 68.001rem) {
+    .team-section > .team-section-heading {
+        position: sticky;
+        top: 5.5rem;
+        align-self: start;
+    }
+}
+
 .team-project,
 .team-member,
 .team-contact-item {
