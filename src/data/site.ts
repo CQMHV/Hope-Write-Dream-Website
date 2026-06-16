@@ -57,6 +57,7 @@ export type ContactItem = {
     value: string;
     href: string;
     icon: string;
+    id?: string;
 };
 
 export type Translation = {
@@ -211,30 +212,31 @@ export const translations: Record<Locale, Translation> = {
         },
         contact: {
             heading: "联系渠道",
-            intro: "欢迎通过邮件或公开 Issue 沟通合作、反馈与项目建议。",
+            intro: "欢迎通过 Discord、邮件或赞助入口与团队建立联系。",
             items: [
                 {
-                    label: "团队邮箱",
-                    value: siteConfig.contactEmail,
-                    href: `mailto:${siteConfig.contactEmail}`,
-                    icon: "mail"
+                    label: "Discord 社群",
+                    value: "discord.gg/aajRjanwGp",
+                    href: siteConfig.contactLinks.discord,
+                    icon: "forum"
                 },
                 {
-                    label: "项目仓库",
-                    value: "GitHub Repository",
-                    href: siteConfig.repositoryUrl,
-                    icon: "terminal"
+                    label: "加入我们",
+                    value: siteConfig.contactLinks.joinEmail,
+                    href: `mailto:${siteConfig.contactLinks.joinEmail}`,
+                    icon: "group_add",
+                    id: "join-us"
                 },
                 {
-                    label: "反馈入口",
-                    value: "GitHub Issues",
-                    href: siteConfig.issuesUrl,
-                    icon: "bug_report"
+                    label: "支持邮箱",
+                    value: siteConfig.contactLinks.supportEmail,
+                    href: `mailto:${siteConfig.contactLinks.supportEmail}`,
+                    icon: "support_agent"
                 },
                 {
                     label: "赞助支持",
-                    value: "GitHub Sponsors",
-                    href: siteConfig.sponsorUrl,
+                    value: "sponsor.hopewritedream.com",
+                    href: siteConfig.contactLinks.sponsor,
                     icon: "favorite"
                 }
             ]
@@ -352,30 +354,31 @@ export const translations: Record<Locale, Translation> = {
         },
         contact: {
             heading: "聯絡渠道",
-            intro: "歡迎透過郵件或公開 Issue 溝通合作、回饋與專案建議。",
+            intro: "歡迎透過 Discord、郵件或贊助入口與團隊建立聯絡。",
             items: [
                 {
-                    label: "團隊信箱",
-                    value: siteConfig.contactEmail,
-                    href: `mailto:${siteConfig.contactEmail}`,
-                    icon: "mail"
+                    label: "Discord 社群",
+                    value: "discord.gg/aajRjanwGp",
+                    href: siteConfig.contactLinks.discord,
+                    icon: "forum"
                 },
                 {
-                    label: "專案倉庫",
-                    value: "GitHub Repository",
-                    href: siteConfig.repositoryUrl,
-                    icon: "terminal"
+                    label: "加入我們",
+                    value: siteConfig.contactLinks.joinEmail,
+                    href: `mailto:${siteConfig.contactLinks.joinEmail}`,
+                    icon: "group_add",
+                    id: "join-us"
                 },
                 {
-                    label: "回饋入口",
-                    value: "GitHub Issues",
-                    href: siteConfig.issuesUrl,
-                    icon: "bug_report"
+                    label: "支援信箱",
+                    value: siteConfig.contactLinks.supportEmail,
+                    href: `mailto:${siteConfig.contactLinks.supportEmail}`,
+                    icon: "support_agent"
                 },
                 {
                     label: "贊助支持",
-                    value: "GitHub Sponsors",
-                    href: siteConfig.sponsorUrl,
+                    value: "sponsor.hopewritedream.com",
+                    href: siteConfig.contactLinks.sponsor,
                     icon: "favorite"
                 }
             ]
@@ -493,30 +496,31 @@ export const translations: Record<Locale, Translation> = {
         },
         contact: {
             heading: "連絡先",
-            intro: "協力、フィードバック、提案はメールまたは公開 Issue からお送りください。",
+            intro: "Discord、メール、スポンサー入口からチームに連絡できます。",
             items: [
                 {
-                    label: "チームメール",
-                    value: siteConfig.contactEmail,
-                    href: `mailto:${siteConfig.contactEmail}`,
-                    icon: "mail"
+                    label: "Discord コミュニティ",
+                    value: "discord.gg/aajRjanwGp",
+                    href: siteConfig.contactLinks.discord,
+                    icon: "forum"
                 },
                 {
-                    label: "リポジトリ",
-                    value: "GitHub Repository",
-                    href: siteConfig.repositoryUrl,
-                    icon: "terminal"
+                    label: "参加する",
+                    value: siteConfig.contactLinks.joinEmail,
+                    href: `mailto:${siteConfig.contactLinks.joinEmail}`,
+                    icon: "group_add",
+                    id: "join-us"
                 },
                 {
-                    label: "フィードバック",
-                    value: "GitHub Issues",
-                    href: siteConfig.issuesUrl,
-                    icon: "bug_report"
+                    label: "サポートメール",
+                    value: siteConfig.contactLinks.supportEmail,
+                    href: `mailto:${siteConfig.contactLinks.supportEmail}`,
+                    icon: "support_agent"
                 },
                 {
                     label: "スポンサー",
-                    value: "GitHub Sponsors",
-                    href: siteConfig.sponsorUrl,
+                    value: "sponsor.hopewritedream.com",
+                    href: siteConfig.contactLinks.sponsor,
                     icon: "favorite"
                 }
             ]
@@ -634,30 +638,31 @@ export const translations: Record<Locale, Translation> = {
         },
         contact: {
             heading: "Contact Channels",
-            intro: "Reach out through email or public Issues for collaboration, feedback, and project suggestions.",
+            intro: "Reach the team through Discord, email, or the sponsor portal.",
             items: [
                 {
-                    label: "Team email",
-                    value: siteConfig.contactEmail,
-                    href: `mailto:${siteConfig.contactEmail}`,
-                    icon: "mail"
+                    label: "Discord Community",
+                    value: "discord.gg/aajRjanwGp",
+                    href: siteConfig.contactLinks.discord,
+                    icon: "forum"
                 },
                 {
-                    label: "Repository",
-                    value: "GitHub Repository",
-                    href: siteConfig.repositoryUrl,
-                    icon: "terminal"
+                    label: "Join Us",
+                    value: siteConfig.contactLinks.joinEmail,
+                    href: `mailto:${siteConfig.contactLinks.joinEmail}`,
+                    icon: "group_add",
+                    id: "join-us"
                 },
                 {
-                    label: "Feedback",
-                    value: "GitHub Issues",
-                    href: siteConfig.issuesUrl,
-                    icon: "bug_report"
+                    label: "Support Email",
+                    value: siteConfig.contactLinks.supportEmail,
+                    href: `mailto:${siteConfig.contactLinks.supportEmail}`,
+                    icon: "support_agent"
                 },
                 {
                     label: "Sponsor",
-                    value: "GitHub Sponsors",
-                    href: siteConfig.sponsorUrl,
+                    value: "sponsor.hopewritedream.com",
+                    href: siteConfig.contactLinks.sponsor,
                     icon: "favorite"
                 }
             ]

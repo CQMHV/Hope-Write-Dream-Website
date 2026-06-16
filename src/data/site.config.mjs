@@ -8,10 +8,13 @@ export const siteConfig = {
     ogImagePath: "/og-image.svg",
     pwaIcon192Path: "/images/icons/icon-192.png",
     pwaIcon512Path: "/images/icons/icon-512.png",
-    contactEmail: "hello@hopewritedream.com",
     repositoryUrl: "https://github.com/CQMHV/Hope-Write-Dream-Website",
-    issuesUrl: "https://github.com/CQMHV/Hope-Write-Dream-Website/issues",
-    sponsorUrl: "https://github.com/sponsors/CQMHV",
+    contactLinks: {
+        discord: "https://discord.gg/aajRjanwGp",
+        joinEmail: "join-us@cqmhv.com",
+        supportEmail: "support@cqmhv.com",
+        sponsor: "https://sponsor.hopewritedream.com/"
+    },
     projectLinks: {
         website: "https://www.hopewritedream.com/",
         vrchatAvatarLearn: "https://vrcal.cqmhv.com/",
@@ -27,7 +30,7 @@ export const siteConfig = {
         distances000: "https://distances000.hopewritedream.com/",
         aerith: "https://aerith.hopewritedream.com/",
         yukioooooo0: "https://Yukioooooo0.hopewritedream.com/",
-        joinUs: "https://www.hopewritedream.com/zh-cn/more/#join-us"
+        joinUs: "#join-us"
     },
     themeSeedColor: "#009688",
     themeColorLight: "#eefdf8",

@@ -172,6 +172,10 @@ body.dark .team-hero-card {
     scroll-margin-top: 5.5rem;
 }
 
+.team-contact-item {
+    scroll-margin-top: 5.5rem;
+}
+
 .team-project,
 .team-member,
 .team-contact-item {
