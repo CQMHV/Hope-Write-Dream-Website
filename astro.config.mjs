@@ -7,9 +7,29 @@ const site = siteConfig.url;
 const sitemapLocales = Object.fromEntries(
     supportedUiLocales.map((locale) => [locale.toLowerCase(), locale]),
 );
+const sitemapDefaultLocaleUrl = new URL(`${defaultRouteLocale}/`, `${site}/`).href;
 
 function shouldStripOptimizeDependency(dependency) {
     return dependency.startsWith("astro > ") || dependency.includes("dev-toolbar");
+}
+
+function serializeSitemapItem(item) {
+    const links = item.links ?? [];
+
+    if (links.some((link) => link.lang === "x-default")) {
+        return item;
+    }
+
+    return {
+        ...item,
+        links: [
+            ...links,
+            {
+                lang: "x-default",
+                url: sitemapDefaultLocaleUrl,
+            },
+        ],
+    };
 }
 
 // Keep Vite's dev dependency optimizer away from Astro-injected entries that fail pre-bundling on Windows.
@@ -49,6 +69,12 @@ export default defineConfig({
                 locales: sitemapLocales,
             },
             filter: (page) => page !== `${site}/`,
+            serialize: serializeSitemapItem,
+            namespaces: {
+                news: false,
+                image: false,
+                video: false,
+            },
         }),
     ],
     i18n: {

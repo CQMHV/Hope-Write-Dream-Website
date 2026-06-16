@@ -9,7 +9,8 @@ const { translation: t } = Astro.props;
 const contactIconStyles = [
     "amber2 black-text",
     "blue2 black-text",
-    "lime2 black-text"
+    "lime2 black-text",
+    "red2 black-text"
 ];
 ---
 
@@ -20,7 +21,7 @@ const contactIconStyles = [
     </div>
     <div class="s12 l8 grid large-space">
         {t.contact.items.map((item, index) => (
-            <a class="s12 m6 l4 team-contact-item no-wave surface-container-high large-padding round" href={item.href}>
+            <a class="s12 m6 team-contact-item no-wave surface-container-high large-padding round" href={item.href}>
                 <i class={contactIconStyles[index]}>{item.icon}</i>
                 <span>
                     <strong>{item.label}</strong>

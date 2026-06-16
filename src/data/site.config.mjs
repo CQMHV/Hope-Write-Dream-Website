@@ -11,11 +11,7 @@ export const siteConfig = {
     contactEmail: "hello@hopewritedream.com",
     repositoryUrl: "https://github.com/CQMHV/Hope-Write-Dream-Website",
     issuesUrl: "https://github.com/CQMHV/Hope-Write-Dream-Website/issues",
-    socialLinks: {
-        github: "https://github.com/CQMHV/Hope-Write-Dream-Website",
-        website: "https://www.hopewritedream.com",
-        email: "mailto:hello@hopewritedream.com"
-    },
+    sponsorUrl: "https://github.com/sponsors/CQMHV",
     projectLinks: {
         website: "https://www.hopewritedream.com/",
         vrchatAvatarLearn: "https://vrcal.cqmhv.com/",

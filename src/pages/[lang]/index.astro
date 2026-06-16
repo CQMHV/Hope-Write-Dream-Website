@@ -5,7 +5,6 @@ import ContactSection from "@/components/ContactSection.astro";
 import Hero from "@/components/Hero.astro";
 import MembersSection from "@/components/MembersSection.astro";
 import ProjectsSection from "@/components/ProjectsSection.astro";
-import SiteFooter from "@/components/SiteFooter.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { localeMeta, locales, translations, type Locale } from "@/data/site";
 import "@/styles/team.css";
@@ -38,11 +37,6 @@ const navItems = [
         href: "#contact",
         label: t.nav.contact,
         icon: "mail"
-    },
-    {
-        href: "#social",
-        label: t.nav.social,
-        icon: "share"
     }
 ];
 ---
@@ -56,5 +50,4 @@ const navItems = [
         <MembersSection translation={t} />
         <ContactSection translation={t} />
     </main>
-    <SiteFooter translation={t} />
 </BaseLayout>

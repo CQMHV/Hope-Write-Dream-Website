@@ -11,11 +11,7 @@ export const siteConfig: {
     readonly contactEmail: "hello@hopewritedream.com";
     readonly repositoryUrl: "https://github.com/CQMHV/Hope-Write-Dream-Website";
     readonly issuesUrl: "https://github.com/CQMHV/Hope-Write-Dream-Website/issues";
-    readonly socialLinks: {
-        readonly github: "https://github.com/CQMHV/Hope-Write-Dream-Website";
-        readonly website: "https://www.hopewritedream.com";
-        readonly email: "mailto:hello@hopewritedream.com";
-    };
+    readonly sponsorUrl: "https://github.com/sponsors/CQMHV";
     readonly projectLinks: {
         readonly website: "https://www.hopewritedream.com/";
         readonly vrchatAvatarLearn: "https://vrcal.cqmhv.com/";

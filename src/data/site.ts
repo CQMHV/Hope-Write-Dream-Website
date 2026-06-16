@@ -59,12 +59,6 @@ export type ContactItem = {
     icon: string;
 };
 
-export type SocialItem = {
-    label: string;
-    href: string;
-    icon: string;
-};
-
 export type Translation = {
     title: string;
     description: string;
@@ -72,7 +66,6 @@ export type Translation = {
         projects: string;
         members: string;
         contact: string;
-        social: string;
     };
     controls: {
         language: string;
@@ -103,31 +96,7 @@ export type Translation = {
         intro: string;
         items: ContactItem[];
     };
-    social: {
-        heading: string;
-        intro: string;
-        items: SocialItem[];
-    };
-    footer: string;
 };
-
-const socialItems: SocialItem[] = [
-    {
-        label: "GitHub",
-        href: siteConfig.socialLinks.github,
-        icon: "code"
-    },
-    {
-        label: "Website",
-        href: siteConfig.socialLinks.website,
-        icon: "public"
-    },
-    {
-        label: "Email",
-        href: siteConfig.socialLinks.email,
-        icon: "alternate_email"
-    }
-];
 
 export const translations: Record<Locale, Translation> = {
     "zh-cn": {
@@ -136,8 +105,7 @@ export const translations: Record<Locale, Translation> = {
         nav: {
             projects: "项目",
             members: "成员",
-            contact: "联系",
-            social: "社交"
+            contact: "联系"
         },
         controls: {
             language: "语言",
@@ -262,15 +230,15 @@ export const translations: Record<Locale, Translation> = {
                     value: "GitHub Issues",
                     href: siteConfig.issuesUrl,
                     icon: "bug_report"
+                },
+                {
+                    label: "赞助支持",
+                    value: "GitHub Sponsors",
+                    href: siteConfig.sponsorUrl,
+                    icon: "favorite"
                 }
             ]
-        },
-        social: {
-            heading: "社交链接",
-            intro: "从这些入口关注项目进展或发起对话。",
-            items: socialItems
-        },
-        footer: "以开放、清晰和可维护的方式持续建设。"
+        }
     },
     "zh-tw": {
         title: `${siteConfig.name} | 團隊首頁`,
@@ -278,8 +246,7 @@ export const translations: Record<Locale, Translation> = {
         nav: {
             projects: "專案",
             members: "成員",
-            contact: "聯絡",
-            social: "社群"
+            contact: "聯絡"
         },
         controls: {
             language: "語言",
@@ -404,15 +371,15 @@ export const translations: Record<Locale, Translation> = {
                     value: "GitHub Issues",
                     href: siteConfig.issuesUrl,
                     icon: "bug_report"
+                },
+                {
+                    label: "贊助支持",
+                    value: "GitHub Sponsors",
+                    href: siteConfig.sponsorUrl,
+                    icon: "favorite"
                 }
             ]
-        },
-        social: {
-            heading: "社群連結",
-            intro: "從這些入口關注專案進展或發起對話。",
-            items: socialItems
-        },
-        footer: "以開放、清晰和可維護的方式持續建設。"
+        }
     },
     "ja-jp": {
         title: `${siteConfig.name} | チームページ`,
@@ -420,8 +387,7 @@ export const translations: Record<Locale, Translation> = {
         nav: {
             projects: "プロジェクト",
             members: "メンバー",
-            contact: "連絡先",
-            social: "ソーシャル"
+            contact: "連絡先"
         },
         controls: {
             language: "言語",
@@ -546,15 +512,15 @@ export const translations: Record<Locale, Translation> = {
                     value: "GitHub Issues",
                     href: siteConfig.issuesUrl,
                     icon: "bug_report"
+                },
+                {
+                    label: "スポンサー",
+                    value: "GitHub Sponsors",
+                    href: siteConfig.sponsorUrl,
+                    icon: "favorite"
                 }
             ]
-        },
-        social: {
-            heading: "ソーシャルリンク",
-            intro: "進捗を追ったり、会話を始めたりできます。",
-            items: socialItems
-        },
-        footer: "オープンで明確、保守しやすい形で育てていきます。"
+        }
     },
     "en-us": {
         title: `${siteConfig.name} | Team Page`,
@@ -562,8 +528,7 @@ export const translations: Record<Locale, Translation> = {
         nav: {
             projects: "Projects",
             members: "Members",
-            contact: "Contact",
-            social: "Social"
+            contact: "Contact"
         },
         controls: {
             language: "Language",
@@ -688,15 +653,15 @@ export const translations: Record<Locale, Translation> = {
                     value: "GitHub Issues",
                     href: siteConfig.issuesUrl,
                     icon: "bug_report"
+                },
+                {
+                    label: "Sponsor",
+                    value: "GitHub Sponsors",
+                    href: siteConfig.sponsorUrl,
+                    icon: "favorite"
                 }
             ]
-        },
-        social: {
-            heading: "Social Links",
-            intro: "Follow the project or start a conversation from these channels.",
-            items: socialItems
-        },
-        footer: "Built in the open with clarity and maintainability in mind."
+        }
     }
 };
 
