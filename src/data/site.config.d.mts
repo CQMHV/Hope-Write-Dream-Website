@@ -19,8 +19,10 @@ export const siteConfig: {
         readonly website: "https://www.hopewritedream.com/";
         readonly vrchatAvatarLearn: "https://vrcal.cqmhv.com/";
         readonly vrchatDataHub: "https://vrchat-data-hub.cqmhv.com/";
-        readonly alcomd3: "https://alcomd3.cqmhv.com/";
+        readonly alcomd3: "https://alcomd.cqmhv.com/";
         readonly tools: "https://tool.cqmhv.com/";
+        readonly vrcti: "https://vrcti.cqmhv.com/";
+        readonly dgLabLink: "https://github.com/CQMHV/DG-LAB-Link";
     };
     readonly memberAvatars: {
         readonly cqmhv: "/images/members/cqmhv-avatar.png";
@@ -53,4 +55,4 @@ export const siteConfig: {
     };
 };
 
-export const serviceWorkerCacheName: "hwd-team-site-v7";
+export const serviceWorkerCacheName: "hwd-team-site-v8";

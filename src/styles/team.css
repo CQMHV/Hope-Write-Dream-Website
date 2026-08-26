@@ -236,6 +236,18 @@ body.dark .team-hero-card {
         linear-gradient(160deg, #ffffff, #e2f1ed 82%);
 }
 
+.team-project:nth-child(6) {
+    background:
+        linear-gradient(135deg, rgba(225, 190, 231, 0.34), transparent 38%),
+        linear-gradient(160deg, #ffffff, #e2f1ed 82%);
+}
+
+.team-project:nth-child(7) {
+    background:
+        linear-gradient(135deg, rgba(248, 187, 208, 0.34), transparent 38%),
+        linear-gradient(160deg, #ffffff, #e2f1ed 82%);
+}
+
 body.dark .team-project {
     background:
         linear-gradient(135deg, rgba(187, 222, 251, 0.12), transparent 38%),
@@ -263,6 +275,18 @@ body.dark .team-project:nth-child(4) {
 body.dark .team-project:nth-child(5) {
     background:
         linear-gradient(135deg, rgba(240, 244, 195, 0.1), transparent 38%),
+        linear-gradient(160deg, #111e1c, #152220 82%);
+}
+
+body.dark .team-project:nth-child(6) {
+    background:
+        linear-gradient(135deg, rgba(225, 190, 231, 0.12), transparent 38%),
+        linear-gradient(160deg, #111e1c, #152220 82%);
+}
+
+body.dark .team-project:nth-child(7) {
+    background:
+        linear-gradient(135deg, rgba(248, 187, 208, 0.12), transparent 38%),
         linear-gradient(160deg, #111e1c, #152220 82%);
 }
 

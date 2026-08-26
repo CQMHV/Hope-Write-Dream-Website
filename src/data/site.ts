@@ -124,7 +124,7 @@ export const translations: Record<Locale, Translation> = {
         },
         projects: {
             heading: "团队项目",
-            intro: "这里展示了团队迄今为止的所有项目的入口。",
+            intro: "这里集中展示团队目前维护和开发的主要项目入口。",
             items: [
                 {
                     name: "Hope Write Dream Website",
@@ -151,10 +151,10 @@ export const translations: Record<Locale, Translation> = {
                     icon: "dataset"
                 },
                 {
-                    name: "ALCOMD3 VRChat 工程文件管理器",
-                    summary: "用于管理 VRChat 工程文件的工具项目。",
-                    status: "开放中",
-                    detail: "围绕工程文件整理、打开和管理流程提升效率，提供更为方便且赏心悦目的工程管理工具。",
+                    name: "ALCOMD3 VRChat 包管理器",
+                    summary: "支持 MCP、采用 Material Design 3 的 VRChat 包管理器客户端。",
+                    status: "开发中",
+                    detail: "面向 VRChat Creator Companion 工作流，持续改进项目与包管理体验。",
                     href: siteConfig.projectLinks.alcomd3,
                     icon: "folder_open"
                 },
@@ -165,6 +165,22 @@ export const translations: Record<Locale, Translation> = {
                     detail: "将常用的辅助功能实现出来，并把分散的功能集中到一个更容易访问的位置。",
                     href: siteConfig.projectLinks.tools,
                     icon: "construction"
+                },
+                {
+                    name: "VRChat Type Indicator - VRCTI",
+                    summary: "支持五种语言的 VRChat 类型倾向测试复刻站。",
+                    status: "开放中",
+                    detail: "以多语言静态站形式提供 20 题测试、本地化结果链接、复制和分享功能。",
+                    href: siteConfig.projectLinks.vrcti,
+                    icon: "quiz"
+                },
+                {
+                    name: "DG-LAB Link",
+                    summary: "可扩展的 DG-LAB 波形连接与多设备控制桌面端。",
+                    status: "测试中",
+                    detail: "通过 Tauri、React 和 Rust 对接 Socket V4 Relay；当前仍需完成实体设备验收。",
+                    href: siteConfig.projectLinks.dgLabLink,
+                    icon: "cable"
                 }
             ]
         },
@@ -266,7 +282,7 @@ export const translations: Record<Locale, Translation> = {
         },
         projects: {
             heading: "目前團隊專案",
-            intro: "這些專案涵蓋團隊首頁、VRChat 學習資料、資料索引、工程檔案管理和常用工具。",
+            intro: "這裡集中展示團隊目前維護和開發的主要專案入口。",
             items: [
                 {
                     name: "本站",
@@ -293,10 +309,10 @@ export const translations: Record<Locale, Translation> = {
                     icon: "dataset"
                 },
                 {
-                    name: "ALCOMD3 VRChat 工程檔案管理器",
-                    summary: "用於管理 VRChat 工程檔案的工具專案。",
-                    status: "維護中",
-                    detail: "圍繞工程檔案整理、開啟和管理流程提升效率。",
+                    name: "ALCOMD3 VRChat 套件管理器",
+                    summary: "支援 MCP、採用 Material Design 3 的 VRChat 套件管理器用戶端。",
+                    status: "開發中",
+                    detail: "面向 VRChat Creator Companion 工作流程，持續改善專案與套件管理體驗。",
                     href: siteConfig.projectLinks.alcomd3,
                     icon: "folder_open"
                 },
@@ -307,6 +323,22 @@ export const translations: Record<Locale, Translation> = {
                     detail: "把分散的輔助功能集中到一個更容易存取的位置。",
                     href: siteConfig.projectLinks.tools,
                     icon: "construction"
+                },
+                {
+                    name: "VRChat Type Indicator - VRCTI",
+                    summary: "支援五種語言的 VRChat 類型傾向測試復刻站。",
+                    status: "開放中",
+                    detail: "以多語靜態網站提供 20 題測試、本地化結果連結、複製和分享功能。",
+                    href: siteConfig.projectLinks.vrcti,
+                    icon: "quiz"
+                },
+                {
+                    name: "DG-LAB Link",
+                    summary: "可擴充的 DG-LAB 波形連線與多裝置控制桌面應用程式。",
+                    status: "測試中",
+                    detail: "以 Tauri、React 和 Rust 對接 Socket V4 Relay；目前仍需完成實體裝置驗收。",
+                    href: siteConfig.projectLinks.dgLabLink,
+                    icon: "cable"
                 }
             ]
         },
@@ -408,7 +440,7 @@ export const translations: Record<Locale, Translation> = {
         },
         projects: {
             heading: "現在のチームプロジェクト",
-            intro: "チームページ、VRChat 学習資料、データ索引、プロジェクトファイル管理、便利ツールを扱っています。",
+            intro: "チームが現在保守・開発している主なプロジェクトへの入口をまとめています。",
             items: [
                 {
                     name: "本站",
@@ -435,10 +467,10 @@ export const translations: Record<Locale, Translation> = {
                     icon: "dataset"
                 },
                 {
-                    name: "ALCOMD3 VRChat 工程文件管理器",
-                    summary: "VRChat プロジェクトファイルを管理するためのツールです。",
-                    status: "保守中",
-                    detail: "ファイル整理、起動、管理の流れを扱いやすくします。",
+                    name: "ALCOMD3 VRChat パッケージマネージャー",
+                    summary: "MCP に対応し、Material Design 3 を採用した VRChat パッケージマネージャークライアントです。",
+                    status: "開発中",
+                    detail: "VRChat Creator Companion のワークフローに向けて、プロジェクトとパッケージの管理体験を継続的に改善します。",
                     href: siteConfig.projectLinks.alcomd3,
                     icon: "folder_open"
                 },
@@ -449,6 +481,22 @@ export const translations: Record<Locale, Translation> = {
                     detail: "分散した補助機能を見つけやすい場所に集約します。",
                     href: siteConfig.projectLinks.tools,
                     icon: "construction"
+                },
+                {
+                    name: "VRChat Type Indicator - VRCTI",
+                    summary: "5 言語に対応した VRChat タイプ傾向テストの静的な再現サイトです。",
+                    status: "公開中",
+                    detail: "20 問のテスト、ローカライズされた結果リンク、コピー、共有機能を提供します。",
+                    href: siteConfig.projectLinks.vrcti,
+                    icon: "quiz"
+                },
+                {
+                    name: "DG-LAB Link",
+                    summary: "DG-LAB の波形接続と複数デバイス制御に対応する拡張可能なデスクトップアプリです。",
+                    status: "テスト中",
+                    detail: "Tauri、React、Rust で Socket V4 Relay に接続します。現在は実機での最終検証が必要です。",
+                    href: siteConfig.projectLinks.dgLabLink,
+                    icon: "cable"
                 }
             ]
         },
@@ -550,7 +598,7 @@ export const translations: Record<Locale, Translation> = {
         },
         projects: {
             heading: "Current Projects",
-            intro: "These projects cover the team homepage, VRChat learning resources, data indexes, project file management, and utility tools.",
+            intro: "Explore the main projects the team currently maintains and develops.",
             items: [
                 {
                     name: "Website",
@@ -577,10 +625,10 @@ export const translations: Record<Locale, Translation> = {
                     icon: "dataset"
                 },
                 {
-                    name: "ALCOMD3 VRChat Project Manager",
-                    summary: "A tool project for managing VRChat project files.",
-                    status: "Maintained",
-                    detail: "It improves workflows around organizing, opening, and managing project files.",
+                    name: "ALCOMD3 VRChat Package Manager",
+                    summary: "A VRChat package manager client with MCP support and Material Design 3.",
+                    status: "In development",
+                    detail: "It continues to improve project and package management for VRChat Creator Companion workflows.",
                     href: siteConfig.projectLinks.alcomd3,
                     icon: "folder_open"
                 },
@@ -591,6 +639,22 @@ export const translations: Record<Locale, Translation> = {
                     detail: "It collects scattered helper functions in one easier-to-reach place.",
                     href: siteConfig.projectLinks.tools,
                     icon: "construction"
+                },
+                {
+                    name: "VRChat Type Indicator - VRCTI",
+                    summary: "A five-language static recreation of the VRChat Type Indicator experience.",
+                    status: "Open",
+                    detail: "It offers a 20-question flow, localized result links, copying, and sharing.",
+                    href: siteConfig.projectLinks.vrcti,
+                    icon: "quiz"
+                },
+                {
+                    name: "DG-LAB Link",
+                    summary: "An extensible desktop hub for DG-LAB waveform connections and multi-device control.",
+                    status: "Testing",
+                    detail: "Built with Tauri, React, and Rust for Socket V4 Relay; final validation with physical devices is still required.",
+                    href: siteConfig.projectLinks.dgLabLink,
+                    icon: "cable"
                 }
             ]
         },

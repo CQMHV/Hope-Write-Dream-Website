@@ -19,8 +19,10 @@ export const siteConfig = {
         website: "https://www.hopewritedream.com/",
         vrchatAvatarLearn: "https://vrcal.cqmhv.com/",
         vrchatDataHub: "https://vrchat-data-hub.cqmhv.com/",
-        alcomd3: "https://alcomd3.cqmhv.com/",
-        tools: "https://tool.cqmhv.com/"
+        alcomd3: "https://alcomd.cqmhv.com/",
+        tools: "https://tool.cqmhv.com/",
+        vrcti: "https://vrcti.cqmhv.com/",
+        dgLabLink: "https://github.com/CQMHV/DG-LAB-Link"
     },
     memberAvatars: {
         cqmhv: "/images/members/cqmhv-avatar.png"
@@ -53,4 +55,4 @@ export const siteConfig = {
     },
 };
 
-export const serviceWorkerCacheName = "hwd-team-site-v7";
+export const serviceWorkerCacheName = "hwd-team-site-v8";
