@@ -32,6 +32,8 @@ export const siteConfig = {
         distances000: "https://distances000.hopewritedream.com/",
         aerith: "https://aerith.hopewritedream.com/",
         yukioooooo0: "https://Yukioooooo0.hopewritedream.com/",
+        ecmXiaokong: "https://ecm-xiaokong.hopewritedream.com/",
+        shicheng12345: "https://shicheng12345.hopewritedream.com/",
         joinUs: "#join-us"
     },
     themeSeedColor: "#009688",
@@ -55,4 +57,4 @@ export const siteConfig = {
     },
 };
 
-export const serviceWorkerCacheName = "hwd-team-site-v8";
+export const serviceWorkerCacheName = "hwd-team-site-v9";

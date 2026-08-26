@@ -218,6 +218,20 @@ export const translations: Record<Locale, Translation> = {
                     href: siteConfig.memberLinks.yukioooooo0
                 },
                 {
+                    name: "ECM-xiaokong 晓空",
+                    role: "团队成员",
+                    focus: "Hope Write Dream 团队成员。",
+                    initials: "E",
+                    href: siteConfig.memberLinks.ecmXiaokong
+                },
+                {
+                    name: "shicheng12345 势成",
+                    role: "团队成员",
+                    focus: "Hope Write Dream 团队成员。",
+                    initials: "S",
+                    href: siteConfig.memberLinks.shicheng12345
+                },
+                {
                     name: "屏幕前的你",
                     role: "加入我们",
                     focus: "Hope Write Dream！",
@@ -374,6 +388,20 @@ export const translations: Record<Locale, Translation> = {
                     focus: "Hope Write Dream 團隊成員。",
                     initials: "Y",
                     href: siteConfig.memberLinks.yukioooooo0
+                },
+                {
+                    name: "ECM-xiaokong 晓空",
+                    role: "團隊成員",
+                    focus: "Hope Write Dream 團隊成員。",
+                    initials: "E",
+                    href: siteConfig.memberLinks.ecmXiaokong
+                },
+                {
+                    name: "shicheng12345 势成",
+                    role: "團隊成員",
+                    focus: "Hope Write Dream 團隊成員。",
+                    initials: "S",
+                    href: siteConfig.memberLinks.shicheng12345
                 },
                 {
                     name: "螢幕前的你",
@@ -534,6 +562,20 @@ export const translations: Record<Locale, Translation> = {
                     href: siteConfig.memberLinks.yukioooooo0
                 },
                 {
+                    name: "ECM-xiaokong 晓空",
+                    role: "チームメンバー",
+                    focus: "Hope Write Dream チームメンバー。",
+                    initials: "E",
+                    href: siteConfig.memberLinks.ecmXiaokong
+                },
+                {
+                    name: "shicheng12345 势成",
+                    role: "チームメンバー",
+                    focus: "Hope Write Dream チームメンバー。",
+                    initials: "S",
+                    href: siteConfig.memberLinks.shicheng12345
+                },
+                {
                     name: "画面の前のあなた",
                     role: "参加しませんか",
                     focus: "Hope Write Dream！",
@@ -690,6 +732,20 @@ export const translations: Record<Locale, Translation> = {
                     focus: "Hope Write Dream team member.",
                     initials: "Y",
                     href: siteConfig.memberLinks.yukioooooo0
+                },
+                {
+                    name: "ECM-xiaokong 晓空",
+                    role: "Team Member",
+                    focus: "Hope Write Dream team member.",
+                    initials: "E",
+                    href: siteConfig.memberLinks.ecmXiaokong
+                },
+                {
+                    name: "shicheng12345 势成",
+                    role: "Team Member",
+                    focus: "Hope Write Dream team member.",
+                    initials: "S",
+                    href: siteConfig.memberLinks.shicheng12345
                 },
                 {
                     name: "You in front of the screen",

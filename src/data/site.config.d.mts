@@ -32,6 +32,8 @@ export const siteConfig: {
         readonly distances000: "https://distances000.hopewritedream.com/";
         readonly aerith: "https://aerith.hopewritedream.com/";
         readonly yukioooooo0: "https://Yukioooooo0.hopewritedream.com/";
+        readonly ecmXiaokong: "https://ecm-xiaokong.hopewritedream.com/";
+        readonly shicheng12345: "https://shicheng12345.hopewritedream.com/";
         readonly joinUs: "#join-us";
     };
     readonly themeSeedColor: "#009688";
@@ -55,4 +57,4 @@ export const siteConfig: {
     };
 };
 
-export const serviceWorkerCacheName: "hwd-team-site-v8";
+export const serviceWorkerCacheName: "hwd-team-site-v9";
